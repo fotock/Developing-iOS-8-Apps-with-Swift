@@ -2,7 +2,6 @@
 斯坦福公开课。Developing iOS 8 Apps with Swift 课件中文整理。
 
 iTunes U 课程: [Developing iOS 8 Apps Swift](https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099)
-
 斯坦福 CS193P 课程: [iPhone Application Development](http://web.stanford.edu/class/cs193p/cgi-bin/drupal/)
 
 #前言
