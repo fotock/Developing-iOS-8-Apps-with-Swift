@@ -1,19 +1,25 @@
 # Developing-iOS-8-Apps-with-Swift
 斯坦福公开课。Developing iOS 8 Apps with Swift 课件中文整理。
 
+iTunes U 课程: [Developing iOS 8 Apps Swift](https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099)
+
+斯坦福 CS193P 课程: [CS193P iPhone Application Development](http://web.stanford.edu/class/cs193p/cgi-bin/drupal/)
+
 #前言
 
 字幕已经有同学在翻译了，这里就只放整理的笔记。
-字幕整理项目:
+
+课程字幕整理项目:
 [Developing_iOS_8_Apps_With_Swift](https://github.com/x140yu/Developing_iOS_8_Apps_With_Swift)
 
 课件内容的信息量还是不小的。这里将按顺序一部分一部分整理成不同的.swift文件，不再使用.pdf等文件，以便大家调试。
-不是一讲一课件。
 
-#目录
+#课件目录
 整理中...
 
-#贡献
+
+
+#如何贡献
 请在 [Issues](https://github.com/fotock/Developing-iOS-8-Apps-with-Swift/issues) 区提交内容。
 
 # 版权说明
