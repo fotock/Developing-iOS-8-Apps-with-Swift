@@ -20,7 +20,7 @@ iTunes U 课程: [Developing iOS 8 Apps Swift](https://itunes.apple.com/us/cours
 
 
 #如何贡献
-请在 [Issues](https://github.com/fotock/Developing-iOS-8-Apps-with-Swift/issues) 区提交内容。
+请在右上方 [Issues](https://github.com/fotock/Developing-iOS-8-Apps-with-Swift/issues) 版块提交您的课件翻译.swift。
 
 # 版权说明
 
