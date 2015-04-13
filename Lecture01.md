@@ -19,35 +19,53 @@ A demo with a thousand words is worth tens of thousands of words.
 #What will I learn in this course?
 ###How to build cool apps
   Easy to build even very complex applications.
+  
   Result lives in your pocket or backpack!
+  
   Very easy to distribute your application through the AppStore.
+  
   Vibrant development community.
+  
 ### Real-life Object-Oriented Programming
   The heart of Cocoa Touch is 100% object-oriented.
+  
   Application of MVC design model.
+  
   Many computer science concepts applied in a commercial development platform:
-  Databases, Graphics, Multimedia, Multithreading, Animation, Networking, and much, much more!
+    Databases, Graphics, Multimedia, Multithreading, Animation, Networking, and much, much more!
+    
   Numerous students have gone on to sell products on the AppStore.
   
 
 
 #Prerequisites
 ### Prior Coursework
+
   Object-Oriented Programming experience mandatory.
+  
   CS106A&B (or X) required & CS107 or CS108 or CS110 also (at a minimum) required.
   (or equivalent for non-Stanford undergrads)
+  
 ### You should know well the meaning of these terms …
+
   Class (description/template for an object)
+  
   Instance (manifestation of a class)
+  
   Message (sent to object to make it act)
+  
   Method (code invoked by a Message)
+  
   Instance Variable (object-specific storage)
+  
   Superclass/Subclass (Inheritance)
+  
   If you are not very comfortable with all of these, this is probably not the class for you!
   
 ###Programming Experience
   This is an upper-level CS course.
-  If you have never written a program where you had to design and implement more than a handful of classes, this will be a big step up in difficulty for you. 
+  
+  If you have never written a program where you had to design and implement more than a handful of classes, this will be a          big step up in difficulty for you. 
 
 
 #What’s in iOS?
