@@ -1,9 +1,9 @@
 
 #Today
 
-What is this class all about?
+###What is this class all about?
   
-##Why am I here?
+Why am I here?
 
 ###Prerequisites
 You must be a strong object-oriented programmer.
