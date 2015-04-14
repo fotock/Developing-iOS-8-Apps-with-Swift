@@ -1,21 +1,28 @@
 
 #Today
-
- More Swift & the Foundation Framework
+###More Swift & the Foundation Framework
+ 
   Optionals and enum
+  
   Array<T>, Dictionary<K,V>, Range<T>, et. al.
+  
   Data Structures in Swift
+  
   Methods
+  
   Properties
+  
   Initialization
+  
   AnyObject, introspection and casting (is and as)
+  
   Helpful Methods and Functions String vs. NSString, Array vs. NSArray, Dictionary vs. NSDictionary
+  
   Property List NSUserDefaults
-
 
 
-##Optional
- An Optional is just an enum
+#Optional
+###An Optional is just an enum
   Conceptually it is like this (the <T> is a generic like as in Array<T>) …
 ```swift
   enum Optional<T> {
@@ -26,39 +33,53 @@
 ```
   
   … is …
+  ```swift
   let x = Optional<String>.None
-  let x: String? = “hello”… is … let x = Optional<String>.Some(“hello”)
-  var y = x!
+  
+  let x: String? = “hello”
+  ```
   … is …
+  ```swift
+  let x = Optional<String>.Some(“hello”)
+  
+  var y = x!
+  ```
+  … is …
+  ```swift
   switch x {
       case Some(let value): y = value
       case None: // raise an exception 
   }
+  ```
 
 
-
-
- Array 
- Array 
+# Array 
+###Array 
+```swift
   var a = Array<String>() 
+```
   … is the same as … 
+```swift
   var a = [String]() 
 
   let animals = [“Giraffe”, “Cow”, “Doggie”, “Bird”] 
   animals.append(“Ostrich”) // won’t compile, animals is immutable (because of let) 
   let animal = animals[5] // crash (array index out of bounds)
- 
+
   // enumerating an Array 
+  
   for animal in animals {
-  println(“\(animal)”) 
+      println(“\(animal)”) 
   } 
-
+```
 
-
- Dictionary 
- Dictionary 
+#Dictionary 
+###Dictionary 
+```swift
   var pac10teamRankings = Dictionary<String, Int>() 
+```
   … is the same as … 
+```swift
   var pac10teamRankings = [String:Int]()
  
   pac10teamRankings = [”Stanford”:1, ”Cal”:10] 
@@ -68,40 +89,47 @@
   for (key, value) in pac10teamRankings { 
       println(“\(key) = \(value)”) 
   } 
-
+  ```
 
-
-
- Range 
- Range
+#Range 
+###Range
   A Range in Swift is just two end points of a sensible type (not gonna explain right now) 
+  
   Range is generic (e.g. Range<T>)
+  
   This is sort of a pseudo-representation of Range: 
+  ```swift
   struct Range<T> { 
      var startIndex: T 
      var endIndex: T 
   } 
+  ```
   An Array’s range would be a Range<Int> (since Arrays are indexed by Int)
+  
   Warning: A String subrange is not Range<Int> (it is Range<String.Index> … we’ll talk later!)
  
   There is special syntax for specifying a Range: either ... (inclusive) or ..< (open-ended) 
+  ```swift
   let array = [“a”,”b”,”c”,”d”] 
   let subArray1 = array[2...3] // subArray1 will be [“c”,”d”] 
   let subArray2 = array[2..<3] // subArray2 will be [“c”] 
   for i in 27...104 { } // Range is enumeratable, like Array, String, Dictionary 
-
+```
  
-
- Other Classes 
- NSObject 
+#Other Classes 
+###NSObject 
   Base class for all Objective-C classes
+  
   Some advanced features will require you to subclass from NSObject (and it can’t hurt to do so) 
- NSNumber 
+###NSNumber 
   Generic number-holding class 
+  ```swift
   let n = NSNumber(35.5) 
-  let intversion = n.intValue // also doubleValue, boolValue, etc. 
- NSDate 
+  let intversion = n.intValue // also doubleValue, boolValue, etc.
+  ```
+#NSDate 
   Used to find out the date and time right now or to store past or future dates.
+  
   See also NSCalendar, NSDateFormatter, NSDateComponents 
   If you are displaying a date in your UI, there are localization ramifications, so check these out! 
  NSData 
