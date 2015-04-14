@@ -1,31 +1,37 @@
 
 #Today
  
- Objective-C Compatibility
+### Objective-C Compatibility
   Bridging 
- Property List 
+###Property List 
   NSUserDefaults
+  
   Demo: var programin CalculatorBrain
- Views 
+###Views 
   Custom Drawing 
- Demo 
+###Demo 
   FaceView 
 
- Objective-C Compatibility
- Bridging
+# Objective-C Compatibility
+### Bridging
   iOS was developed in a language called Objective-C.
+  
   Virtually all of the iOS API is accessible seamlessly from Swift.
+  
   A few special data types are handled specially (and powerfully) via bridging.
+  
   Bridging means that you can use the interchangeably.
 
-  NSString is bridged to String
+ - NSString is bridged to String
 
-  NSArray is bridged to Array<AnyObject>
+ - NSArray is bridged to Array<AnyObject>
 
-  NSDictionary is bridged to Dictionary<NSObject, AnyObject>
+ - NSDictionary is bridged to Dictionary<NSObject, AnyObject>
 
-  Int, Float, Double, Bool are all bridged to NSNumber (but not vice-versa)
+ - Int, Float, Double, Bool are all bridged to NSNumber (but not vice-versa)
+ 
   To get from NSNumber to these types use doubleValue, intValue, etc.
+
   Int, Float, Double also bridged to the C types int, float, double
 
 
