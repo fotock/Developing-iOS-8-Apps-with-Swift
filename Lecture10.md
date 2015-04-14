@@ -1,11 +1,11 @@
 
 #Today
 
-UITextField
+###UITextField
 
 Bonus Topic!
 
-Table View
+###Table View
 
 A UIView for displaying long lists or tables of data
 
@@ -15,7 +15,7 @@ A UIView for displaying long lists or tables of data
 
 #UITextField
 
-Like UILabel, but editable
+###Like UILabel, but editable
 
 Typing things in on an iPhone is secondary UI (keyboard is tiny).
 
@@ -25,7 +25,7 @@ Don’t be fooled by your UI in the simulator (because you can use physical keyb
 
 You can set attributed text, text color, alignment, font, etc., just like a UILabel.
 
-Keyboard appears when UITextField becomes “first responder”
+###Keyboard appears when UITextField becomes “first responder”
 
 It will do this automatically when the user taps on it.
 
@@ -33,23 +33,23 @@ Or you can make it the first responder by sending it the becomeFirstResponder me
 
 To make the keyboard go away, send resignFirstResponder to the UITextField.
 
-Delegate can get involved with Return key, etc.
-
+###Delegate can get involved with Return key, etc.
+```swift
 func textFieldShouldReturn(sender: UITextField) // sent when “Return” key is pressed
-
+```
 Oftentimes, you will sender.resignFirstResponder in this method.
 
 Returns whether to do normal processing when Return key is pressed (e.g. target/action). 
 
-Finding out when editing has ended
+###Finding out when editing has ended
 
 Another delegate method ...
-
+```swift
 func textFieldDidEndEditing(sender: UITextField)
-
+```
 Sent when the text field resigns being first responder.
 
-UITextField is a UIControl
+###UITextField is a UIControl
 
 So you can also set up target/action to notify you when things change.
 
@@ -62,7 +62,7 @@ Right-click on a UITextField in a storyboard to see the options available.
 
 
 #Keyboard
-Controlling the appearance of the keyboard
+###Controlling the appearance of the keyboard
 
 Set the properties defined in the UITextInputTraits protocol (which UITextField implements).
 
@@ -74,7 +74,7 @@ var BOOL secureTextEntry // for passwords, for example
 var UIKeyboardType keyboardType // ASCII, URL, PhonePad, etc.
 ```
 
-The keyboard comes up over other views!
+###The keyboard comes up over other views!
 
 So you may need to adjust your view positioning (especially to keep the text field itself visible).
 
@@ -94,9 +94,9 @@ object: view.window)
 The event here is UIKeyboardDidShowNotification.!
 
 The object is the one who is causing the even to happen (our MVC’s view’s window).!
-
+```swift
 func theKeyboardAppeared(notification: NSNotification) will get called when it happens.!
-
+```
 The notification.userInfo will have details about the appearance.!
 
 UITableViewController listens for this & scrolls table automatically if a row has a UITextField.
@@ -104,294 +104,270 @@ UITableViewController listens for this & scrolls table automatically if a row ha
 
 
 #UITextField
-Other UITextField properties
+###Other UITextField properties
+```swift
 var clearsOnBeginEditing: Bool
 var adjustsFontSizeToFitWidth: Bool
 var minimumFontSize: CGFloat // always set this if you set adjustsFontSizeToFitWidth
 var placeholder: String // drawn in gray when text field is empty
 var background/disabledBackground: UIImage
 var defaultTextAttributes: Dictionary // applies to entire text
-Other UITextField functionality
+```
+###Other UITextField functionality
+
 UITextFields have a “left” and “right” overlays.
+
 You can control in detail the layout of the text field (border, left/right view, clear button).
-Other Keyboard functionality
+
+###Other Keyboard functionality
 Keyboards can have accessory views that appear above the keyboard (custom toolbar, etc.).
+```swift
 var inputAccessoryView: UIView // UITextField method
-
+```
 
 
 
 #UITableView
-Very important class for displaying data in a table
+###Very important class for displaying data in a table
 One-dimensional table.
+
 It’s a subclass of UIScrollView.
+
 Table can be static or dynamic (i.e. a list of items).
+
 Lots and lots of customization via a dataSource protocol and a delegate protocol.
+
 Very efficient even with very large sets of data.
-Displaying multi-dimensional tables ...
+
+###Displaying multi-dimensional tables ...
+
 Usually done via a UINavigationController with multiple MVC’s where View is UITableView
-Kinds of UITableViews
+
+###Kinds of UITableViews
+
 Plain or Grouped
+
 Static or Dynamic
+
 Divided into sections or not
+
 Different formats for each row in the table (including completely customized) 
-The class UITableViewController
-provides a convenient packaging of a
-UITableView in an MVC.
 
-It’s mostly useful when!
-the UITableView is going to fill all of self.view!
-(in fact self.view in a UITableViewController is the UITableView).
+The class UITableViewController provides a convenient packaging of a UITableView in an MVC.
 
-You can add one to your
-storyboard simply by
-dragging it from here.
+It’s mostly useful when the UITableView is going to fill all of self.view (in fact self.view in a UITableViewController is the UITableView).
 
-Controller: (subclass of) UITableViewController!
+You can add one to your storyboard simply by dragging it from here.
+
+Controller: (subclass of) UITableViewController
+
 Controller’s view property: the UITableView
-
-Like any other View Controller,!
-you’ll want to set its class in the
-Identity Inspector.
-
-Just use!
-File -> New File …
-as usual.
-
-Make sure you set the
-superclass to
-UITableViewController
-
-… otherwise it won’t
-make sense to set it as
-the class here.
-
-Your UITableViewController subclass
-will also serve as the!
-UITableView’s dataSource and delegate!
-(more on this in a moment).
-
-You can see that if you right-click
-the Controller here.
-
-dataSource and delegate
-properties
-
-If you use UITableView without UITableViewController, you’ll have to wire these up yourself.
-
-Remember that you can shift-right-click!
-(or ctrl-shift-left-click)!
-on things to pick exactly what you want!
-from what is under the mouse.!
-This makes it easier to pick the Controller, the
-table view, a cell in a table view, or even a
-view inside a cell in the table view.
-
-One important attribute is the
-Plain vs. Grouped style …
-
-Static means that these cells are set up
-in the storyboard only.!
-You can edit them however you want
-including dragging buttons, etc., into them!
-(and wiring up outlets to the Controller).
-
-A more interesting table,
-however, is a Dynamic one …
-
-… which we almost
-always use in Plain style.
-
-These cells are now templates which will be
-repeated for however many rows are needed to
-display the data in MVC’s Model.
-
-Any cell can be inspected!
-in the Attributes Inspector …
-
-… to set things like!
-the style of the cell
-
-You can also set a
-symbol to appear on the
-right of the cell.
-
-It is important to set proper autolayout
-constraints if you want your Custom cells to adjust
-their height automatically to their content
-
-To wire up any outlets, though, you have to
-create a custom subclass of the class of UIView
-that is in these cells: UITableViewCell.
-
-You create a custom subclass of
-UITableViewCell just like any other
-subclass. Using File -> New File …
-
-
 
 
 #UITableView Protocols
 
-How to connect all this stuff up in code?
+###How to connect all this stuff up in code?
 
-Connections to code are made using the UITableView‘s dataSource and delegate
+ - Connections to code are made using the UITableView‘s dataSource and delegate
 
-The delegate is used to control how the table is displayed (it’s look and feel)
+      The delegate is used to control how the table is displayed (it’s look and feel)
 
-The dataSource provides the data that is displayed inside the cells
+      The dataSource provides the data that is displayed inside the cells
 
-UITableViewController automatically sets itself as the UITableView’s delegate & dataSource
+- UITableViewController automatically sets itself as the UITableView’s delegate & dataSource
 
-Your UITableViewController subclass will also have a property pointing to the UITableView …
+  Your UITableViewController subclass will also have a property pointing to the UITableView …
+```swift
+  var tableView: UITableView // self.view in UITableViewController
+```
+###When do we need to implement the dataSource?
 
-var tableView: UITableView // self.view in UITableViewController
+- Whenever the data in the table is dynamic (i.e. not static cells)
 
-When do we need to implement the dataSource?
+- There are three important methods in this protocol …
 
-Whenever the data in the table is dynamic (i.e. not static cells)
+     How many sections in the table?
 
-There are three important methods in this protocol …
+     How many rows in each section?
 
-How many sections in the table?
+     Give me a view to use to draw each cell at a given row in a given section.
 
-How many rows in each section?
-
-Give me a view to use to draw each cell at a given row in a given section.
-
-Let’s cover the last one first (since the first two are very straightforward) ...
-
-
+  Let’s cover the last one first (since the first two are very straightforward) ...
 
 
-##Customizing Each Row
-Providing a UIView to draw each row …
+
+
+#Customizing Each Row
+###Providing a UIView to draw each row …
 It has to be a UITableViewCell (which is a subclass of UIView) or subclass thereof
+
 Don’t worry, if you have 10,000 rows, only the visible ones will have a UITableViewCell
+
 But this means that UITableViewCells are reused as rows appear and disappear
+
 This has ramifications for multithreaded situations, so be careful in that scenario
+
 The UITableView will ask its UITableViewDataSource for the UITableViewCell for a row …
+```swift
 func tableView(tv: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
 {
+    let data = myInternalDataStructure[indexPath.section][indexPath.row]
+    
+    let cell = . . . // create a UITableViewCell and load it up with data
+    
+    return cell
 }
-let data = myInternalDataStructure[indexPath.section][indexPath.row]
-let cell = . . . // create a UITableViewCell and load it up with data
-return cell
-}
+```
 
 
-
-UITableViewDataSource
-How does a dynamic table know how many rows there are?
+#UITableViewDataSource
+###How does a dynamic table know how many rows there are?
 And how many sections, too, of course?
+
 Via these UITableViewDataSource protocol methods …
+```swift
 func numberOfSectionsInTableView(sender: UITableView) -> Int
 func tableView(sender: UITableView, numberOfRowsInSection: Int) -> Int
-Number of sections is 1 by default
+```
+###Number of sections is 1 by default
 In other words, if you don’t implement numberOfSectionsInTableView, it will be 1
-No default for numberOfRowsInSection
+###No default for numberOfRowsInSection
 This is a required method in this protocol (as is cellForRowAtIndexPath)
-What about a static table?
+###What about a static table?
 Do not implement these dataSource methods for a static table
+
 UITableViewController will take care of that for you
+
 You edit the data directly in the storyboard
 
 
-##Summary
+###Summary
 Loading your table view with data is simple …
+
 1. set the table view’s dataSource to your Controller (automatic with UITableViewController)
+
 2.implement numberOfSectionsInTableView and numberOfRowsInSection
+
 3. implement cellForRowAtIndexPath to return loaded-up UITableViewCells
-Section titles are also considered part of the table’s “data”
+
+###Section titles are also considered part of the table’s “data”
 So you return this information via UITableViewDataSource methods …
+```swift
 func tableView(UITableView, titleFor{Header,Footer}InSection: Int) -> String
+```
 If a String is not sufficient, the UITableView’s delegate can provide a UIView
-There are a number of other methods in this protocol
+###There are a number of other methods in this protocol
+
 But we’re not going to cover them in lecture
+
 They are mostly about dealing with editing the table by deleting/moving/inserting rows
+
 That’s because when rows are deleted, inserted or moved, it would likely modify the Model
 (and we’re talking about the UITableViewDataSource protocol here) 
-
 
 
-Table View Segues
-Preparing to segue from a row in a table view!
+#Table View Segues
+###Preparing to segue from a row in a table view!
 The sender argument to prepareForSegue is the UITableViewCell of that row …
+```swift
 func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
-if let identifier = segue.identifier {
-switch identifier {
-case “XyzSegue”: // handle XyzSegue here
-case “AbcSegue”:
-let cell = sender as MyTableViewCell
-if let indexPath = tableView.indexPathForCell(cell) {
-let seguedToMVC = segue.destinationViewController as MyVC
-seguedToMVC.publicAPI = data[indexPath.section][indexPath.row]
-}
-default: break
-}
-}
-}
-and then get data from our internal data structure using the NSIndexPath’s section and row!
-and use that information to prepare the segued-to API using its public API
+     if let identifier = segue.identifier {
+          switch identifier {
+          case “XyzSegue”: // handle XyzSegue here
+          case “AbcSegue”:
+              let cell = sender as MyTableViewCell
+              if let indexPath = tableView.indexPathForCell(cell) {
+                   let seguedToMVC = segue.destinationViewController as MyVC
+                   seguedToMVC.publicAPI = data[indexPath.section][indexPath.row]
+              }
+          default: break
+          }
+     }
+ }
+```
+- You can see now why sender is AnyObject!
+
+  Sometimes it’s a UIButton, sometimes it’s a UITableViewCell
+  
+- So you will need to cast sender with as or as? to turn it into a UITableViewCell
+
+  If you have a custom UITableViewCell subclass, you can cast it to that if it matters
+  
+- Usually we will need the NSIndexPath of the UITableViewCell!
+  
+  Because we use that to index into our internal data structures
+
+- Now we just get our destination MVC as the proper class as usual …
+
+- and then get data from our internal data structure using the NSIndexPath’s section and row!
+
+  and use that information to prepare the segued-to API using its public API
 
 
-
-
-##UITableViewDelegate
-So far we’ve only talked about the UITableView’s dataSource
+#UITableViewDelegate
+###So far we’ve only talked about the UITableView’s dataSource
 But UITableView has another protocol-driven delegate called its delegate
-The delegate controls how the UITableView is displayed
+###The delegate controls how the UITableView is displayed
 Not the data it displays (that’s the dataSource’s job), how it is displayed
-Common for dataSource and delegate to be the same object
+###Common for dataSource and delegate to be the same object
 Usually the Controller of the MVC containing the UITableView
+
 Again, this is set up automatically for you if you use UITableViewController
-The delegate also lets you observe what the table view is doing
+###The delegate also lets you observe what the table view is doing
 Especially responding to when the user selects a row
+
 Usually you will just segue when this happens, but if you want to track it directly …
 
-
-
-
-##UITableView “Target/Action”
-UITableViewDelegate method sent when row is selected
+#UITableView “Target/Action”
+###UITableViewDelegate method sent when row is selected
 This is sort of like “table view target/action” (only needed if you’re not segueing, of course)
+
 Example: if the master in a split view wants to update the detail without segueing to a new one
-func tableView(sender: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-// go do something based on information about my Model
-// corresponding to indexPath.row in indexPath.section
-// maybe directly update the Detail if I’m the Master in a split view?
-}
-Delegate method sent when Detail Disclosure button is touched
+```swift
+ func tableView(sender: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // go do something based on information about my Model
+    // corresponding to indexPath.row in indexPath.section
+    // maybe directly update the Detail if I’m the Master in a split view?
+ }
+ ```
+###Delegate method sent when Detail Disclosure button is touched
+```swift
 func tableView(UITableView, accessoryButtonTappedForRowWithIndexPath: NSIndexPath)
+```
 Again, you can just segue from that Detail Disclosure button if you prefer
 
 
+#UITableViewDelegate
+###Lots and lots of other delegate methods
 
-
-##UITableViewDelegate
-Lots and lots of other delegate methods
 will/did methods for both selecting and deselecting rows
+
 Providing UIView objects to draw section headers and footers
+
 Handling editing rows (moving them around with touch gestures)
+
 willBegin/didEnd notifications for editing
+
 Copying/pasting rows
 
 
-
-##UITableView
-What if your Model changes?
+#UITableView
+###What if your Model changes?
+```swift
 func reloadData()
+```
 Causes the UITableView to call numberOfSectionsInTableView and numberOfRowsInSection
 all over again and then cellForRowAtIndexPath on each visible row
+
 Relatively heavyweight, but if your entire data structure changes, that’s what you need
+
 If only part of your Model changes, there are lighter-weight reloaders, for example ...
+```swift
 func reloadRowsAtIndexPaths(indexPaths: [NSIndexPath],
-withRowAnimation: UITableViewRowAnimation)
+                      withRowAnimation: UITableViewRowAnimation)
+```
 
-
-
-
-Controlling the height of rows
+###Controlling the height of rows
 
 Row height can be fixed (UITableView’s var rowHeight: CGFloat)
 
@@ -400,26 +376,24 @@ Or it can be determined using autolayout (rowHeight = UITableViewAutomaticDimens
 If you do automatic, help the table view out by setting estimatedRowHeight to something
 
 The UITableView’s delegate can also control row heights …
-
+```swift
 func tableView(UITableView, {estimated}heightForRowAtIndexPath: NSIndexPath) -> CGFloat
-
+```
 Beware: the non-estimated version of this could get called A LOT if you have a big table
 
  
- 
+###There are dozens of other methods in UITableView itself
 
-There are dozens of other methods in UITableView itself
+- Setting headers and footers for the entire table.
 
-Setting headers and footers for the entire table.
+- Controlling the look (separator style and color, default row height, etc.).
 
-Controlling the look (separator style and color, default row height, etc.).
+- Getting cell information (cell for index path, index path for cell, visible cells, etc.).
 
-Getting cell information (cell for index path, index path for cell, visible cells, etc.).
+- Scrolling to a row.
 
-Scrolling to a row.
+- Selection management (allows multiple selection, getting the selected row, etc.).
 
-Selection management (allows multiple selection, getting the selected row, etc.).
+- Moving, inserting and deleting rows, etc.
 
-Moving, inserting and deleting rows, etc.
-
-As always, part of learning the material in this course is studying the documentation
+- As always, part of learning the material in this course is studying the documentation
