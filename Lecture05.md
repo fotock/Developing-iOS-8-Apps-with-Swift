@@ -34,24 +34,28 @@
 
   Int, Float, Double also bridged to the C types int, float, double
 
-
- Casting to/from bridged types
-  You can also “cast” (reliably, i.e. no need for as?) to/from a bridged type
+###Casting to/from bridged types
+ - You can also “cast” (reliably, i.e. no need for as?) to/from a bridged type
+ ```swift
   let length = (aString as NSString).length // length is an NSString method (be careful!)
   (anArray as NSArray).componentsJoinedByString(NSString) // cjbs is a NSArray method
+ ```
+- String, Array and Dictionary are structs, not objects (classes)
 
-  String, Array and Dictionary are structs, not objects (classes)
   But they can still be an AnyObject
+  
   That’s because they are bridged to these NS versions which are objects
 
-  The keys in an NSDictionary are NSObject subclasses (Dictionary<NSObject, AnyObject>)
+- The keys in an NSDictionary are NSObject subclasses (Dictionary<NSObject, AnyObject>)
+
   But that does not prevent a Swift String from being a key in an NSDictionary
+  
   That’s because it is bridged to NSString which does inherit from NSObject
 
-  You won’t even notice this bridging 99% of the tim
+- You won’t even notice this bridging 99% of the tim
 
 
- Property List
+# Property List
  What is a Property List?
   Property List is really just the definition of a term
   It means an AnyObject which is known to be a collection of objects which are ONLY one of …
