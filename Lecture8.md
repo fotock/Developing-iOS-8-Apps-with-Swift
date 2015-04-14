@@ -70,12 +70,12 @@
 
     Otherwise, you might be doing something over and over unnecessarily.
 
-  - Do something here if things your display is changing while your MVC is off-screen.
+ - Do something here if things your display is changing while your MVC is off-screen.
   
-  - You could use this to optimize performance by waiting until this method is called
+ - You could use this to optimize performance by waiting until this method is called
     (as opposed to viewDidLoad) to kick off an expensive operation (probably in another thread).
 
-  - Your view’s geometry is set here, but there are other places to react to geometry.
+ - Your view’s geometry is set here, but there are other places to react to geometry.
  
 ###There is a “did” version of this as well
 ```swift
