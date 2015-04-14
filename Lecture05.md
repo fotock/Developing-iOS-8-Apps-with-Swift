@@ -218,10 +218,12 @@
  
 ### CGFloat
  
-  Always use this instead of Double or Float for anything to do with a UIView’s coordinate system
+-  Always use this instead of Double or Float for anything to do with a UIView’s coordinate system
   
-  You can convert from a Double or Float using let cfg = CGFloat(aDouble)
-  
+-  You can convert from a Double or Float using 
+ ```swift
+  let cfg = CGFloat(aDouble)
+ ``` 
 ###CGPoint
  
   Simply a struct with two CGFloats in it: x and y.
