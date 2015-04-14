@@ -1,17 +1,17 @@
 
 #Today
 
-Continuation of Calculator Demo
+###Continuation of Calculator Demo
 
 Another thousand words (or so)?
 
-MVC
+###MVC
 
 Object-Oriented Design Pattern
 
 
-##Demo
-Calculator continued …
+#Demo
+###Calculator continued …
  
 Array<T>
  
@@ -28,14 +28,16 @@ Methods with the same name but different argument types
 More Autolayout
 
 
-##MVC 
-Divide objects in your program into 3 “camps.”
+#MVC 
+###Divide objects in your program into 3 “camps.”
 - Model
 - View
 - Controller
 
 
-Model = What your application is (but not how it is displayed) Controller = How your Model is presented to the user (UI logic)
+Model = What your application is (but not how it is displayed)
+
+Controller = How your Model is presented to the user (UI logic)
  
 View = Your Controller’s minions
 
