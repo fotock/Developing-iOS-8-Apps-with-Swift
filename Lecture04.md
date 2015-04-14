@@ -105,11 +105,11 @@
      var endIndex: T 
   } 
   ```
-  An Array’s range would be a Range<Int> (since Arrays are indexed by Int)
+- An Array’s range would be a Range<Int> (since Arrays are indexed by Int)
   
-  Warning: A String subrange is not Range<Int> (it is Range<String.Index> … we’ll talk later!)
+- Warning: A String subrange is not Range<Int> (it is Range<String.Index> … we’ll talk later!)
  
-  There is special syntax for specifying a Range: either ... (inclusive) or ..< (open-ended) 
+- There is special syntax for specifying a Range: either ... (inclusive) or ..< (open-ended) 
   
   ```swift
   let array = [“a”,”b”,”c”,”d”] 
