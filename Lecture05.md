@@ -40,6 +40,7 @@
   let length = (aString as NSString).length // length is an NSString method (be careful!)
   (anArray as NSArray).componentsJoinedByString(NSString) // cjbs is a NSArray method
  ```
+ 
 - String, Array and Dictionary are structs, not objects (classes)
 
   But they can still be an AnyObject
