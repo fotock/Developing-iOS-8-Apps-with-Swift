@@ -59,7 +59,7 @@ What’s in iOS?
   Localization    Image Picker
   Controls        Camera
 
- ###Media
+###Media
   Core Audio      JPEG, PNG, TIFF
   OpenAL          PDF
   Audio Mixing    Quartz (2D)
