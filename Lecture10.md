@@ -91,7 +91,7 @@ name: UIKeyboardDidShowNotification
 object: view.window)
 ```
 
-The event here is UIKeyboardDidShowNotification.!
+The event here is UIKeyboardDidShowNotification.
 
 The object is the one who is causing the even to happen (our MVC’s view’s window).!
 ```swift
