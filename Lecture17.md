@@ -18,7 +18,7 @@ Localization (l10n)
 
 This is a process of making strings externally editable (from storyboard or code).
 
-It also involves using certain “formatting” classes for things like dates, numbers, etc.
+It also involves using certain "formatting" classes for things like dates, numbers, etc.
 
 You (the developer) get to do this work.
  
@@ -71,7 +71,7 @@ func NSLocalizedString(
 
 Therefore most of the time, we just use … 
 ```swift
-let localString = NSLocalizedString(“Foo”,comment:“This string is shown when…”)
+let localString = NSLocalizedString("Foo",comment:"This string is shown when…")
 ```
 The bundle defaults to NSBundle.mainBundle()and tableName to “Localizable”
 
@@ -82,7 +82,7 @@ The bundle defaults to NSBundle.mainBundle()and tableName to “Localizable”
 Any string you create for the UI with a format string, should use this method … 
 ```swift
 let string = String.localizedStringWithFormat(
-     NSLocalizedString(“the result is %g”,comment:”gives numeric result to the user”),
+     NSLocalizedString("the result is %g",comment:"gives numeric result to the user"),
      theNumber
 )
 ```
