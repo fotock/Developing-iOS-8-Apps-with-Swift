@@ -36,19 +36,11 @@
   ```swift
   let x = Optional<String>.None
   
-<<<<<<< HEAD
-  let x: String? = “hello”
-  ```
-  … is …
-  ```swift
-  let x = Optional<String>.Some(“hello”)
-=======
   let x: String? = "hello"
   ```
   … is …
   ```swift
   let x = Optional<String>.Some("hello")
->>>>>>> pr/7
   
   var y = x!
   ```
@@ -77,11 +69,7 @@
   // enumerating an Array 
   
   for animal in animals {
-<<<<<<< HEAD
-      println(“\(animal)”) 
-=======
       println("\(animal)") 
->>>>>>> pr/7
   } 
 ```
 
@@ -117,28 +105,16 @@
      var endIndex: T 
   } 
   ```
-<<<<<<< HEAD
-- An Array’s range would be a Range<Int> (since Arrays are indexed by Int)
-  
-- Warning: A String subrange is not Range<Int> (it is Range<String.Index> … we’ll talk later!)
-=======
 - An Array's range would be a Range<Int> (since Arrays are indexed by Int)
   
 - Warning: A String subrange is not Range<Int> (it is Range<String.Index> … we'll talk later!)
->>>>>>> pr/7
  
 - There is special syntax for specifying a Range: either ... (inclusive) or ..< (open-ended) 
   
   ```swift
-<<<<<<< HEAD
-  let array = [“a”,”b”,”c”,”d”] 
-  let subArray1 = array[2...3] // subArray1 will be [“c”,”d”] 
-  let subArray2 = array[2..<3] // subArray2 will be [“c”] 
-=======
   let array = ["a","b","c","d"] 
   let subArray1 = array[2...3] // subArray1 will be ["c","d"] 
   let subArray2 = array[2..<3] // subArray2 will be ["c"] 
->>>>>>> pr/7
   for i in 27...104 { } // Range is enumeratable, like Array, String, Dictionary 
 ```
  
@@ -146,14 +122,9 @@
 ###NSObject 
 - Base class for all Objective-C classes
   
-<<<<<<< HEAD
-- Some advanced features will require you to subclass from NSObject (and it can’t hurt to do so) 
-  
-=======
 - Some advanced features will require you to subclass from NSObject (and it can't hurt to do so) 
   
 
->>>>>>> pr/7
 ###NSNumber 
 - Generic number-holding class 
   ```swift
@@ -167,14 +138,9 @@
   
 - If you are displaying a date in your UI, there are localization ramifications, so check these out! 
   
-<<<<<<< HEAD
-###NSData 
-- A “bag o’ bits”. Used to save/restore/transmit raw data throughout the iOS SDK. 
-=======
 
 ###NSData 
 - A "bag o' bits". Used to save/restore/transmit raw data throughout the iOS SDK. 
->>>>>>> pr/7
 
 
 #Data Structures in Swift
@@ -183,10 +149,7 @@
 
 - These are the 3 fundamental building blocks of data structures in Swift 
   
-<<<<<<< HEAD
-=======
 
->>>>>>> pr/7
 ###Similarities 
 
 - Declaration syntax … 
@@ -234,11 +197,7 @@
   
   Remember that function parameters are, by default, constants
   
-<<<<<<< HEAD
-  You can put the keyword var on an parameter, and it will be mutable, but it’s still a copy 
-=======
   You can put the keyword var on an parameter, and it will be mutable, but it's still a copy 
->>>>>>> pr/7
   
   You must note any func that can mutate a struct/enum with the keyword mutating
   
@@ -337,11 +296,7 @@ Parameters Names
       let result = foo(123)
   } 
 ```
-<<<<<<< HEAD
-- You can force the first parameter’s external name to be the internal name with # 
-=======
 - You can force the first parameter's external name to be the internal name with # 
->>>>>>> pr/7
 
 ```swift
   func foo(#internal: Int) {
@@ -363,11 +318,7 @@ Parameters Names
       let result = foo(123, second: 5.5)
   } 
 ```
-<<<<<<< HEAD
-- Any parameter’s external name can be changed
-=======
 - Any parameter's external name can be changed
->>>>>>> pr/7
 ```swift
   func foo(first: Int, externalSecond second: Double) {
      let local = internal 
@@ -377,11 +328,7 @@ Parameters Names
      let result = foo(123, externalSecond: 5.5)
   } 
 ```
-<<<<<<< HEAD
-- Or even omitted (though this would be sort of “anti-Swift”) 
-=======
 - Or even omitted (though this would be sort of "anti-Swift") 
->>>>>>> pr/7
 
 ```swift
   func foo(first: Int, _ second: Double) {
@@ -425,15 +372,9 @@ Parameters Names
     lazy var myProperty = self.initializeMyProperty() 
 ```
 
-<<<<<<< HEAD
-  This still satisfies the “you must initialize all of your properties” rule
-  
-  Unfortunately, things initialized this way can’t be constants (i.e., var ok, let not okay)
-=======
   This still satisfies the "you must initialize all of your properties" rule
   
   Unfortunately, things initialized this way can't be constants (i.e., var ok, let not okay)
->>>>>>> pr/7
   
   This can be used to get around some initialization dependency conundrums 
 
@@ -448,11 +389,7 @@ Parameters Names
   
   So you only need init when a value can’t be set in any of these ways
   
-<<<<<<< HEAD
-###You also get some “free” init methods 
-=======
 ###You also get some "free" init methods 
->>>>>>> pr/7
 
   If all properties in a base class (no superclass) have defaults, you get init() for free
   
@@ -468,11 +405,7 @@ Parameters Names
 ```
 ### What can you do inside an init? 
 
-<<<<<<< HEAD
-  You can set any property’s value, even those with default values
-=======
   You can set any property's value, even those with default values
->>>>>>> pr/7
   
   Constant properties (i.e. properties declared with let) can be set
   
@@ -490,28 +423,13 @@ Parameters Names
   
   A designated init must (and can only) call a designated init that is in its immediate superclass
   
-<<<<<<< HEAD
-  You must initialize all properties introduced by your class before calling a superclass’s init
-  
-  You must call a superclass’s init before you assign a value to an inherited property
-=======
   You must initialize all properties introduced by your class before calling a superclass's init
   
   You must call a superclass's init before you assign a value to an inherited property
->>>>>>> pr/7
   
  - A convenience init must (and can only) call a designated init in its own class 
  - A convenience init may call a designated init indirectly (through another convenience init)
  - A convenience init must call a designated init before it can set any property values 
-<<<<<<< HEAD
- - 
-  The calling of other inits must be complete before you can access properties or invoke methods 
-
-###Inheriting init 
- - If you do not implement any designated inits, you’ll inherit all of your superclass’s designateds 
- - If you override all of your superclass’s designated inits, you’ll inherit all its convenience inits 
- - If you implement no inits, you’ll inherit all of your superclass’s inits 
-=======
   
   The calling of other inits must be complete before you can access properties or invoke methods 
 
@@ -520,7 +438,6 @@ Parameters Names
  - If you do not implement any designated inits, you'll inherit all of your superclass's designateds 
  - If you override all of your superclass's designated inits, you'll inherit all its convenience inits 
  - If you implement no inits, you'll inherit all of your superclass's inits 
->>>>>>> pr/7
  
   Any init inherited by these rules qualifies to satisfy any of the rules on the previous slide 
 
@@ -542,37 +459,22 @@ Parameters Names
   
   Note: The documentation does not seem to properly show these inits!
   
-<<<<<<< HEAD
-  But you’ll be able to tell because the compiler will warn you about the type when you access it.
-  
-```swift 
-  let image = UIImage(named: “foo”) // image is an Optional UIImage (i.e. UIImage?)
-=======
   But you'll be able to tell because the compiler will warn you about the type when you access it.
   
 ```swift 
   let image = UIImage(named: "foo") // image is an Optional UIImage (i.e. UIImage?)
->>>>>>> pr/7
 ```
   Usually we would use if-let for these cases … 
 ```swift
   if let image = UIImage(named: "foo") { 
       // image was successfully created 
   } else { 
-<<<<<<< HEAD
-      // couldn’t create the image 
-=======
       // couldn't create the image 
->>>>>>> pr/7
   } 
 ```
 ###Creating Objects
 
-<<<<<<< HEAD
-  Usually you create an object by calling it’s initializer via the type name … 
-=======
   Usually you create an object by calling it's initializer via the type name … 
->>>>>>> pr/7
 ```swift
   let x = CalculatorBrain() 
   let y = ComplicatedObject(arg1: 42, arg2: "hello", …) 
@@ -586,20 +488,12 @@ Parameters Names
  
   Or obviously sometimes other objects will create objects for you …
  ```swift
-<<<<<<< HEAD
-  let commaSeparatedArrayElements: String = “,”.join(myArray) 
-=======
   let commaSeparatedArrayElements: String = ",".join(myArray) 
->>>>>>> pr/7
  ``` 
 
 #AnyObject
 
-<<<<<<< HEAD
-### Special “Type” (actually it’s a Protocol)
-=======
 ### Special "Type" (actually it's a Protocol)
->>>>>>> pr/7
 
   Used primarily for compatibility with existing Objective-C-based APIs
   
@@ -623,11 +517,7 @@ Parameters Names
  ```
 ### How do we use AnyObject? 
  
-<<<<<<< HEAD
-  We don’t usually use it directly
-=======
   We don't usually use it directly
->>>>>>> pr/7
   
   Instead, we convert it to another, known type 
   
@@ -644,17 +534,10 @@ Parameters Names
   But there are ways to check compatibility (either before forcing or while forcing) … 
 
 ### Casting AnyObject 
-<<<<<<< HEAD
-
-  We “force” an AnyObject to be something else by “casting” it using the as keyword … 
-
-  Let’s use var destinationViewController: AnyObject as an example … 
-=======
 
   We "force" an AnyObject to be something else by "casting" it using the as keyword … 
 
   Let's use var destinationViewController: AnyObject as an example … 
->>>>>>> pr/7
  ```swift
   let calcVC = destinationViewController as CalculatorViewController 
  ```
@@ -672,19 +555,11 @@ Parameters Names
  ```
 ### Casting Arrays of AnyObject
 
-<<<<<<< HEAD
-  If you’re dealing with an [AnyObject], you can cast the elements or the entire array … 
-
-  Let’s use var toolbarItems: [AnyObject] as an example … 
- ```swift
-  for item in toolbarItems { // item’s type is AnyObject 
-=======
   If you're dealing with an [AnyObject], you can cast the elements or the entire array … 
 
   Let's use var toolbarItems: [AnyObject] as an example … 
  ```swift
   for item in toolbarItems { // item's type is AnyObject 
->>>>>>> pr/7
       if let toolbarItem = item as? UIBarButtonItem { 
           // do something with the toolbarItem (which will be a UIBarButtonItem here) 
        } 
@@ -693,11 +568,7 @@ Parameters Names
   for toolbarItem in toolbarItems as [UIBarButtonItem] { // better be so, else crash! 
         // do something with the toolbarItem (which will be a UIBarButtonItem)
   } 
-<<<<<<< HEAD
-  // can’t do as? here because then it might be “for toolbarItem in nil” (makes no sense) 
-=======
   // can't do as? here because then it might be "for toolbarItem in nil" (makes no sense) 
->>>>>>> pr/7
  ```
 ### Another example …
 
@@ -707,11 +578,7 @@ Parameters Names
   
   We changed it to UIButton.
   
-<<<<<<< HEAD
-  But what if we hadn’t changed it to UIButton?
-=======
   But what if we hadn't changed it to UIButton?
->>>>>>> pr/7
   
   How would we have implemented appendDigit? 
   ```swift
@@ -731,12 +598,7 @@ Parameters Names
  
   The type of this button is AnyObject (for historical reasons only)
   
-<<<<<<< HEAD
-  To use it, we’d have to cast button to UIButton 
-=======
   To use it, we'd have to cast button to UIButton 
-
->>>>>>> pr/7
 
 
   We can do this on the fly if we want … 
@@ -759,11 +621,7 @@ Parameters Names
   
   And the assignment is legal because a CalculatorViewController is a UIViewController
   
-<<<<<<< HEAD
-  But we can’t say, for example, vc.enter()
-=======
   But we can't say, for example, vc.enter()
->>>>>>> pr/7
   
  ```swift
   if let calcVC = vc as? CalculatorViewController { 
@@ -792,11 +650,7 @@ Parameters Names
 ```
 ###More Array<T> Methods 
 
-<<<<<<< HEAD
-  This one creates a new array with any “undesirables” filtered out
-=======
   This one creates a new array with any "undesirables" filtered out
->>>>>>> pr/7
   
   The function passed as the argument returns false if an element is undesirable
   ```swift
@@ -808,11 +662,7 @@ Parameters Names
   The thing it is transformed to can be of a different type than what is in the Array
   ```swift
   map(transform: (T) -> U) -> [U] 
-<<<<<<< HEAD
-  let stringified: [String] = [1,2,3].map { “\($0)” }
-=======
   let stringified: [String] = [1,2,3].map { "\($0)" }
->>>>>>> pr/7
   ```
  
   Reduce an entire array to a single value 
@@ -828,15 +678,9 @@ Parameters Names
 
   In Unicode, a given glyph might be represented by multiple Unicode characters (accents, etc.)
   
-<<<<<<< HEAD
-  As a result, you can’t index a String by Int (because it’s a collection of characters, not glyphs) 
-
-
-=======
   As a result, you can't index a String by Int (because it's a collection of characters, not glyphs) 
 
 
->>>>>>> pr/7
   So a lot of native Swift String functions take a String.Index to specify which glyph you want
   
   You can get a String.Index by asking the string for its startIndex then advancing forward 
@@ -856,13 +700,8 @@ Parameters Names
   
   As an example, to get whole number part of a string representing a double …
   ```swift
-<<<<<<< HEAD
-  let num = “56.25” 
-  if let decimalRange = num.rangeOfString(“.”) { // decimalRange is Range<String.Index> 
-=======
   let num = "56.25" 
   if let decimalRange = num.rangeOfString(".") { // decimalRange is Range<String.Index> 
->>>>>>> pr/7
      let wholeNumberPart = num[num.startIndex..<decimalRange.startIndex] 
   } 
  ```
@@ -871,11 +710,7 @@ Parameters Names
   ```swift
   s.removeRange([s.startIndex..<decimalRange.startIndex]) 
   ```
-<<<<<<< HEAD
-  (there are other (defaulted) arguments to removeRange, but I’m not going to cover them now)
-=======
   (there are other (defaulted) arguments to removeRange, but I'm not going to cover them now)
->>>>>>> pr/7
  
   There's also replaceRange(Range, String) 
   
@@ -889,40 +724,20 @@ Parameters Names
   capitalizedString -> String 
   lowercaseString -> String 
   uppercaseString -> String 
-<<<<<<< HEAD
-  join(Array) -> String                              // “,”.join([“1”,”2”,”3”]) = “1,2,3” 
-  componentsSeparatedByString(String) -> [String]    // “1,2,3”.csbs(“,”) = [“1”,”2”,”3”] 
-=======
   join(Array) -> String                              // ",".join(["1","2","3"]) = "1,2,3" 
   componentsSeparatedByString(String) -> [String]    // "1,2,3".csbs(",") = ["1","2","3"] 
->>>>>>> pr/7
  ```
  
 #Type Conversion
 
 ### Conversion between types with init() 
-<<<<<<< HEAD
-  A sort of “hidden” way to convert between types is to create a new object by converting 
-=======
   A sort of "hidden" way to convert between types is to create a new object by converting 
->>>>>>> pr/7
 ```swift
 
   let d: Double = 37.5 
   let f: Float = 37.5 
   let x = Int(d)                 // truncates 
   let xd = Double(x) 
-<<<<<<< HEAD
-  let cgf = CGFloat(d)           // we’ll see CGFloat later in the quarter
-  
-  
-  let a = Array(“abc”)           // a = [“a”,”b”,”c”], i.e. array of Character 
-  let s = String([“a”,”b”,”c”])  // s = “abc” (the array is of Character, not String) 
-  
-  
-  let s = String(52)             // no floats 
-  let s = “\(37.5)”              // but don’t forget about this mechanism 
-=======
   let cgf = CGFloat(d)           // we'll see CGFloat later in the quarter
   
   
@@ -932,21 +747,12 @@ Parameters Names
   
   let s = String(52)             // no floats 
   let s = "\(37.5)"              // but don't forget about this mechanism 
->>>>>>> pr/7
  ```
  
 #Assertions 
 ###Debugging Aid
   Intentionally crash your program if some condition is not true (and give a message)
  ```swift
-<<<<<<< HEAD
-  assert(() -> Bool, “message”)
- ```
-  The function argument is an “autoclosure” however, so you don’t need the { }
- 
-  e.g. assert(validation() != nil, “the validation function returned nil”)
-  Will crash if validation() returns nil (because we are asserting that validation() does not)
-=======
   assert(() -> Bool, "message")
  ```
   The function argument is an "autoclosure" however, so you don't need the { }
@@ -955,7 +761,6 @@ Parameters Names
   
   Will crash if validation() returns nil (because we are asserting that validation() does not)
   
->>>>>>> pr/7
   The validation() != nil part could be any code you want
  
  
