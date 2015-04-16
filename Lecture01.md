@@ -1,11 +1,7 @@
 
 #Today
 
-<<<<<<< HEAD
-##What is this class all about?
-=======
 ###What is this class all about?
->>>>>>> pr/7
   
   Why am I here?
 
@@ -20,12 +16,8 @@ What's in iOS?
 A demo with a thousand words is worth tens of thousands of words. 
 
 
-<<<<<<< HEAD
-#What will I learn in this course?
-=======
 # What will I learn in this course?
 
->>>>>>> pr/7
 ###How to build cool apps
   Easy to build even very complex applications.
   
@@ -78,23 +70,6 @@ A demo with a thousand words is worth tens of thousands of words.
   If you have never written a program where you had to design and implement more than a handful of classes, this will be a          big step up in difficulty for you. 
 
 
-<<<<<<< HEAD
-#What’s in iOS?
-
-###Cocoa Touch
- Multi-Touch     Alerts
-  Core Motion     Web View
-  View Hierarchy  Map Kit
-  Localization    Image Picker
-  Controls        Camera
-
-###Media
-  Core Audio      JPEG, PNG, TIFF
-  OpenAL          PDF
-  Audio Mixing    Quartz (2D)
-  Audio Recording Core Animation
-  Video Playback  OpenGL ES
-=======
 #What's in iOS?
 
 ###Cocoa Touch
@@ -140,7 +115,6 @@ A demo with a thousand words is worth tens of thousands of words.
   Video Playback 
   
   OpenGL ES
->>>>>>> pr/7
 
 ###Core Services
 
@@ -164,11 +138,6 @@ A demo with a thousand words is worth tens of thousands of words.
   
   URL Utilities
 
-<<<<<<< HEAD
-#Platform Components
-###Tools
- Xcode 6           Instr uments
-=======
 ###Core OS
   OSX Kernel    
   
@@ -195,14 +164,10 @@ A demo with a thousand words is worth tens of thousands of words.
  Xcode 6       
  
  Instr uments
->>>>>>> pr/7
  
 ###Language(s)
   let value = formatter.numberFromString(display.text!)?.doubleValue
 ###Frameworks
-<<<<<<< HEAD
-   Foundation    Core Data    UIKit    Map Kit    Core Motion
-=======
    Foundation   
    
    Core Data   
@@ -213,7 +178,6 @@ A demo with a thousand words is worth tens of thousands of words.
    
    Core Motion
    
->>>>>>> pr/7
 ###Design Strategy
    MVC
    
