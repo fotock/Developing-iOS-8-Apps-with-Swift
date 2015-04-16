@@ -54,7 +54,7 @@
 
 ### Examples of bad projects
 
-  Smashtag 2 or “thing that looks a lot like Smashtag with the names changed”
+  Smashtag 2 or "thing that looks a lot like Smashtag with the names changed"
   
   Lots of MVCs with only buttons, labels and text fields and nothing else (i.e. little breadth)
   
@@ -89,9 +89,9 @@
   
   Don’t waste your time writing server-side code.
   
-  It’s okay to “simulate” a server-side interaction to make your code demonstrable.
+  It’s okay to "simulate" a server-side interaction to make your code demonstrable.
   
-  Bottom line: Only your code that uses the iOS SDK will “count”. 
+  Bottom line: Only your code that uses the iOS SDK will "count". 
 
 ### Presentation Quality Matters
 
@@ -129,7 +129,7 @@
    
   * Folio is an on-line database of all of Shakespeare's works.
  
-  ** “blocking” is where people stand on stage.
+  ** "blocking" is where people stand on stage.
 
   The custom view will be simple (only rectangles and circles with colors for stroke/fill, and text).
   
