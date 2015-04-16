@@ -113,14 +113,14 @@
   
   If you don’t want to go live …
   
-     - Keynote/Quicktime has some tools to “animate” screen shots (better than static).
+     - Keynote/Quicktime has some tools to "animate" screen shots (better than static).
      - Video (screen capture) of your app in action can be good also.
 
 
 # Sample Proposal
 ### Section 1: What am I doing?
 
-  I will be building a “Shakespeare Director” application.
+  I will be building a "Shakespeare Director" application.
   
   It will have the following features:
       - A table for choosing a Shakespearean play from a list downloaded from Folio*.
@@ -202,7 +202,7 @@
 
 ### How does it work?
 
-  Instead of ctrl-dragging to another MVC, you ctrl-drag to the “Exit” button in the same MVC
+  Instead of ctrl-dragging to another MVC, you ctrl-drag to the "Exit" button in the same MVC
   
   Then you can choose a special @IBAction method you've created in another MVC 
   
@@ -244,7 +244,7 @@
   
   Can be disruptive to your user-interface, so use carefully.
   
-  Often used for "asynchronous" problems (“connection reset” or "network fetch failed").
+  Often used for "asynchronous" problems ("connection reset" or "network fetch failed").
   
   Can have a text field to get a quick answer (e.g. password)
 
@@ -347,7 +347,7 @@
   
   If repeatedly, the system will not guarantee exactly when it goes off, so this is not "real-time"
   
-  But for most UI “order of magnitude” activities, it’s perfectly fine
+  But for most UI "order of magnitude" activities, it's perfectly fine
   
   We don’t use it for "animation" (more on that later)
   
@@ -471,11 +471,11 @@
                          options: UIViewAnimationOptions.CurveEaseInEaseOut
                        animations: { myView.alpha = 0.0 }
                        completion: { if $0 { myView.removeFromSuperview() } })
-       println(“myView.alpha = \(myView.alpha)”)
+       println("myView.alpha = \(myView.alpha)")
   }
 ```
 
-  This would cause myView to “fade” out over 3 seconds (starting 2s from now).
+  This would cause myView to "fade" out over 3 seconds (starting 2s from now).
   
   Then it would remove myView from the view hierarchy (but only if the fade completed).
   
@@ -497,7 +497,7 @@
   Autoreverse                // play animation forwards, then backwards
   OverrideInheritedDuration  // if not set, use duration of any in-progress animation
   OverrideInheritedCurve     // if not set, use curve (e.g. ease-in/out) of in-progress animation
-  AllowAnimatedContent       // if not set, just interpolate between current and end “bits”
+  AllowAnimatedContent       // if not set, just interpolate between current and end "bits"
   CurveEaseInEaseOut         // slower at the beginning, normal throughout, then slow at end
   CurveEaseIn                // slower at the beginning, but then constant through the rest
   CurveLinear                // same speed throughout
