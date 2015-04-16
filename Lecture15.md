@@ -24,9 +24,9 @@
 
 ###Embed Segue
 
-  Putting an MVC’s View as a subview of another MVC’s View 
+  Putting an MVC's View as a subview of another MVC's View 
  
-  Trax Demo -Show a “mini-map” of the waypoint when viewing its image 
+  Trax Demo -Show a "mini-map" of the waypoint when viewing its image 
 
 
 
@@ -51,9 +51,9 @@
 
    - Again, no back button. 
   
-   - Let’s Cancel and see what happens.
+   - Let's Cancel and see what happens.
    
-   - We’re back to the last Modal View Controller.
+   - We're back to the last Modal View Controller.
   
    - And Cancel again … 
   
@@ -69,7 +69,7 @@
   
 ### How do we set a Modal segue up?
 
- - Just ctrl-drag from a button to another View Controller & pick segue type “Modal”
+ - Just ctrl-drag from a button to another View Controller & pick segue type "Modal"
  
    Inspect the segue to set the style of presentation 
 
@@ -93,7 +93,7 @@
   You prepare for a Modal segue just like any other segue ... 
 ```swift
   func prepareForSegue(segue:UIStoryboardSegue,sender:AnyObject!){
-    if segue.identifier==“GoToMyModalVC”{
+    if segue.identifier=="GoToMyModalVC"{
       let vc = segue.destinationViewController as MyModalVC 
       // set up the vc to run here 
     }
@@ -101,9 +101,9 @@
 ```
 ### Hearing back from a Modally segue-to View Controller
 
-  When the Modal View Controller is “done”, how does it communicate results back to presenter?
+  When the Modal View Controller is "done", how does it communicate results back to presenter?
   
-  If there’s nothing to be said, just dismiss the segued-to MVC (next slide).
+  If there's nothing to be said, just dismiss the segued-to MVC (next slide).
   
   To communicate results, generally you would Unwind (though delegation possible too). 
 
@@ -114,7 +114,7 @@
   The presenting view controller is responsible for dismissing (not the presented)
   
   If you send this message to the presented view controller, it will forward to its presenter
-  (unless it    has presented another MVC, in which case it is the presenter for that other MVC) 
+  (unless it has presented another MVC, in which case it is the presenter for that other MVC) 
 ```swift
   func dismissViewControllerAnimated(Bool,completion:()->Void)
 ```
@@ -126,8 +126,8 @@
   
 ```swift
   var modalTransitionStyle:UIModalTransitionStyle
-  .CoverVertical// slides up and down from bottom of screen (the default) 
-  .FlipHorizontal// flips the current view controller view over to modal 
-  .CrossDissolve// old fades out as new fades in 
-  .PartialCurl// only if presenter is full screen (and no more modal presentations coming) 
+  .CoverVertical      // slides up and down from bottom of screen (the default) 
+  .FlipHorizontal     // flips the current view controller view over to modal 
+  .CrossDissolve      // old fades out as new fades in 
+  .PartialCurl        // only if presenter is full screen (and no more modal presentations coming) 
 ```
