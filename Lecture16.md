@@ -13,9 +13,9 @@
 
 ###  Embed Segue
 
-  Putting an MVC’s View as a subview of another MVC’s View
+  Putting an MVC's View as a subview of another MVC's View
   
-  Trax Demo -Show a “mini-map” of the waypoint when viewing its image 
+  Trax Demo -Show a "mini-map" of the waypoint when viewing its image 
 
 #UIImagePickerController 
 
@@ -25,7 +25,7 @@
   
 ###Usage
 
-  1. Create it & set its delegate (it can’t do anything without its delegate)
+  1. Create it & set its delegate (it can't do anything without its delegate)
   2. Configure it (source, kind of media, user edibility)
   3. Present it 
   4. Respond to delegate methods when user is done/cancels picking the media 
@@ -37,13 +37,13 @@
   
   You can only offer camera or photo library on iPad (not both together at the same time)
   
-  As with all device-dependent API, we want to start by check what’s available … 
+  As with all device-dependent API, we want to start by check what's available … 
 ```swift
   class func isSourceTypeAvailable(sourceType: UIImagePickerControllerSourceType) -> Bool 
 ```
   Source type is .PhotoLibrary or .Camera or .SavedPhotosAlbum (camera roll) 
 
-### But don’t forget that not every source type can give video
+### But don't forget that not every source type can give video
 
   So, you then want to check ... 
 ```swift
@@ -91,7 +91,7 @@
 ```
    This is sort of goofy, but just roll with it.
    
-   It’s a historical artifact not only of Objective-C, but also of the way kUTTypeImage/Movie are declared. 
+   It's a historical artifact not only of Objective-C, but also of the way kUTTypeImage/Movie are declared. 
 
 ###Editability
 ```swift
@@ -99,7 +99,7 @@
 ```
   If true, then the user will have opportunity to edit the image/video inside the picker.
   
-  When your delegate is notified that the user is done, you’ll get both raw and edited versions. 
+  When your delegate is notified that the user is done, you'll get both raw and edited versions. 
   
 ### Limiting Video Capture
 ```swift
@@ -121,7 +121,7 @@
   
   If you are offering the Camera on iPad, then full-screen is preferred.
   
-  Remember: on iPad, it’s Camera OR Photo Library (not both at the same time). 
+  Remember: on iPad, it's Camera OR Photo Library (not both at the same time). 
   
 ### Delegate will be notified when user is done
 ```swift
@@ -148,11 +148,11 @@
   UIImagePickerControllerMediaURL       // NSURL edited video 
   UIImagePickerControllerReferenceURL   // NSURL original (unedited) video 
 ```
-### Saving taken images or video into the device’s photo library
+### Saving taken images or video into the device's photo library
 
   Check out ALAssetsLibrary.
   
-  Or you can use the file system (though much less likely, we’ll demo this just for demo purposes). 
+  Or you can use the file system (though much less likely, we'll demo this just for demo purposes). 
   
 ### In general, much more sophisticated media capture is available
 
@@ -166,9 +166,9 @@
 ```swift
   var cameraOverlayView: UIView 
 ```
-  Be sure to set this view’s frame properly.
+  Be sure to set this view's frame properly.
   
-  Camera is always full screen (on iPhone/iPod Touch anyway): UIScreen’s bounds property.
+  Camera is always full screen (on iPhone/iPod Touch anyway): UIScreen's bounds property.
   
   But if you use the built-in controls at the bottom, you might want your view to be smaller. 
   
@@ -176,13 +176,13 @@
 ```swift
   var showsCameraControls: Bool 
 ```
-  Will leave a blank area at the bottom of the screen (camera’s aspect 4:3, not same as screen’s). 
+  Will leave a blank area at the bottom of the screen (camera's aspect 4:3, not same as screen's). 
   
-  With no controls, you’ll need an overlay view with a “take picture” (at least) button.
+  With no controls, you'll need an overlay view with a "take picture" (at least) button.
   
   That button should send takePicture() to the picker. 
   
-  Don’t forget to dismissModalViewController when you are done taking pictures. 
+  Don't forget to dismissModalViewController when you are done taking pictures. 
   
 ### You can zoom or translate the image while capturing
  ```swift
@@ -254,7 +254,7 @@
 
   1. Get the root of a path into an NSURL
    
-    “Documents” directory or “Caches” directory or ... 
+    "Documents" directory or "Caches" directory or ... 
 
   2. Append path components to the URL
   
@@ -272,18 +272,18 @@
 ###Your application sees iOS file system like a normal Unix filesystem
   It starts at /.
   
-  There are file protections, of course, like normal Unix, so you can’t see everything. 
+  There are file protections, of course, like normal Unix, so you can't see everything. 
   
-### And you can only write inside your application’s “sandbox” 
+### And you can only write inside your application's "sandbox" 
 ### Why?
 
   Security (so no one else can damage your application)
   
-  Privacy (so no other applications can view your application’s data)
+  Privacy (so no other applications can view your application's data)
   
   Cleanup (when you delete an application, everything it has ever written goes with it) 
   
-### So what’s in this “sandbox”? 
+### So what's in this "sandbox"? 
 
   Application bundle directory (binary, .storyboards, .jpgs, etc.). This directory is NOT writeable.
   
@@ -296,7 +296,7 @@
 
 ###How do you get a path to these special sandbox directories?
 
-  NSFileManager (along with NSURL) is the class you use to find out about what’s in the file system. 
+  NSFileManager (along with NSURL) is the class you use to find out about what's in the file system. 
   
   You create an NSFileManager then find system directories ... 
 ```swift
@@ -318,11 +318,11 @@
   NSURLmethods:
 ```swift
   func URLByAppendingPathComponent(String)->NSURL
-  func URLByAppendingPathExtension(String)->NSURL// e.g. “jpg” 
+  func URLByAppendingPathExtension(String)->NSURL// e.g. "jpg" 
 ```
-### Finding out about what’s at the other end of a URL 
+### Finding out about what's at the other end of a URL 
 ```swift
-  varisFileURL:Bool// is this a file URL (whether file exists or not) or something else? 
+  varisFileURL:Bool // is this a file URL (whether file exists or not) or something else? 
   func resourceValuesForKeys([String],error:NSErrorPointer)->[NSObject:AnyObject]?
 ```
   Example keys ... NSURLContentAccessDateKey, NSURLIsDirectoryKey, NSURLFileSizeKey
@@ -333,7 +333,7 @@
   Reading/writing binary data to files 
 ```swift
   init?(contentsOfURL: NSURL) 
-  func writeToURL(NSURL, atomically: Bool) -> Bool // atomically means “safe write” 
+  func writeToURL(NSURL, atomically: Bool) -> Bool // atomically means "safe write" 
 ```
 
 # File System
@@ -354,7 +354,7 @@
                             error: NSErrorPointer) -> Bool 
   func isReadableFileAtPath(String) -> Bool 
 ```
-  Also has a delegate with lots of “should” methods (to do an operation or proceed after an error)
+  Also has a delegate with lots of "should" methods (to do an operation or proceed after an error)
   
   And plenty more. Check out the documentation. 
 
@@ -372,7 +372,7 @@
   
   Very, very powerful framework in iOS. 
   
-### It’s a way of creating an object graph backed by a database
+### It's a way of creating an object graph backed by a database
 
   Usually backed by SQL (but also can do XML or just in memory). 
   
@@ -382,7 +382,7 @@
   
   Create and query for objects using object-oriented API.
   
-  Access the “columns in the database table” using @NSManaged vars on those objects. 
+  Access the "columns in the database table" using @NSManaged vars on those objects. 
 
 
 ### Visual Map
@@ -424,8 +424,8 @@
 ```
   … and simply set and get the property … 
 ```swift
-  let photo = NSEntityDescription.insertNewObjectForEntityForName(“Photo”, inMan...) 
-  photo.title = “My First Photo” 
+  let photo = NSEntityDescription.insertNewObjectForEntityForName("Photo", inMan...) 
+  photo.title = "My First Photo" 
 ```
 
 ### Table View and Core Data 
@@ -441,22 +441,22 @@
   The NSFetchedResultsController can implement all of your UITableViewDatasource methods 
 
 # Demo 
-### Store the user’s waypoint photo in the file system 
+### Store the user's waypoint photo in the file system 
 
   NSFileManager 
   
-  NSData’s writeToURL(atomically:) 
+  NSData's writeToURL(atomically:) 
   
   UIImageJPEGRepresentation() 
  
 # Embed Segues 
-### Putting a VC’s self.view in another VC’s view hierarchy! 
+### Putting a VC's self.view in another VC's view hierarchy! 
   This can be a very powerful encapsulation technique. 
 ### Xcode makes this easy
 
   Drag out a Container View from the object palette into the scene you want to embed it in.
   
-  Automatically sets up an “Embed Segue” from container VC to the contained VC. 
+  Automatically sets up an "Embed Segue" from container VC to the contained VC. 
   
 ### Embed Segue
   Works just like other segues.
@@ -465,6 +465,6 @@
   
 ### View Loading Timing
 
-  Don’t forget, though, that just like other segued-to VCs,
-    the embedded VC’s outlets are not set at the time prepareForSegue(sender:) is called.
+  Don't forget, though, that just like other segued-to VCs,
+    the embedded VC's outlets are not set at the time prepareForSegue(sender:) is called.
     
