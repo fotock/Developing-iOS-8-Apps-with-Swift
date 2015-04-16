@@ -21,11 +21,15 @@ Typing things in on an iPhone is secondary UI (keyboard is tiny).
 
 More of a mainstream UI element on iPad.
 
-Don’t be fooled by your UI in the simulator (because you can use physical keyboard!).
+Don't be fooled by your UI in the simulator (because you can use physical keyboard!).
 
 You can set attributed text, text color, alignment, font, etc., just like a UILabel.
 
+<<<<<<< HEAD
 ###Keyboard appears when UITextField becomes “first responder”
+=======
+###Keyboard appears when UITextField becomes "first responder"
+>>>>>>> pr/7
 
 It will do this automatically when the user taps on it.
 
@@ -35,7 +39,11 @@ To make the keyboard go away, send resignFirstResponder to the UITextField.
 
 ###Delegate can get involved with Return key, etc.
 ```swift
+<<<<<<< HEAD
 func textFieldShouldReturn(sender: UITextField) // sent when “Return” key is pressed
+=======
+func textFieldShouldReturn(sender: UITextField) // sent when "Return" key is pressed
+>>>>>>> pr/7
 ```
 Oftentimes, you will sender.resignFirstResponder in this method.
 
@@ -55,7 +63,7 @@ So you can also set up target/action to notify you when things change.
 
 Just like with a button, there are different UIControlEvents which can kick off an action.
 
-Right-click on a UITextField in a storyboard to see the options available.
+Right-click on a UITextField in a storyboard to see the options available.
 
 
 
@@ -78,26 +86,34 @@ var UIKeyboardType keyboardType // ASCII, URL, PhonePad, etc.
 
 So you may need to adjust your view positioning (especially to keep the text field itself visible).
 
-You do this by reacting to the UIKeyboard{Will,Did}{Show,Hide}Notifications sent by UIWindow.!
+You do this by reacting to the UIKeyboard{Will,Did}{Show,Hide}Notifications sent by UIWindow.
 
-We have not talked about NSNotifications yet, but it’s pretty simple.!
+We have not talked about NSNotifications yet, but it's pretty simple.
 
-You register a method to get called when a named “event” occurs like this …
+You register a method to get called when a named "event" occurs like this …
 
 ```swift
 NSNotificationCenter.defaultCenter().addObserver(self,
-selector: “theKeyboardAppeared:”,
+selector: "theKeyboardAppeared":,
 name: UIKeyboardDidShowNotification
 object: view.window)
 ```
 
 The event here is UIKeyboardDidShowNotification.
 
+<<<<<<< HEAD
 The object is the one who is causing the even to happen (our MVC’s view’s window).!
 ```swift
 func theKeyboardAppeared(notification: NSNotification) will get called when it happens.!
 ```
 The notification.userInfo will have details about the appearance.!
+=======
+The object is the one who is causing the even to happen (our MVC's view's window).
+```swift
+func theKeyboardAppeared(notification: NSNotification) will get called when it happens.
+```
+The notification.userInfo will have details about the appearance.
+>>>>>>> pr/7
 
 UITableViewController listens for this & scrolls table automatically if a row has a UITextField.
 
@@ -108,14 +124,22 @@ UITableViewController listens for this & scrolls table automatically if a row ha
 ```swift
 var clearsOnBeginEditing: Bool
 var adjustsFontSizeToFitWidth: Bool
-var minimumFontSize: CGFloat // always set this if you set adjustsFontSizeToFitWidth
-var placeholder: String // drawn in gray when text field is empty
+var minimumFontSize: CGFloat                // always set this if you set adjustsFontSizeToFitWidth
+var placeholder: String                     // drawn in gray when text field is empty
 var background/disabledBackground: UIImage
+<<<<<<< HEAD
 var defaultTextAttributes: Dictionary // applies to entire text
 ```
 ###Other UITextField functionality
 
 UITextFields have a “left” and “right” overlays.
+=======
+var defaultTextAttributes: Dictionary       // applies to entire text
+```
+###Other UITextField functionality
+
+UITextFields have a "left" and "right" overlays.
+>>>>>>> pr/7
 
 You can control in detail the layout of the text field (border, left/right view, clear button).
 
@@ -131,7 +155,11 @@ var inputAccessoryView: UIView // UITextField method
 ###Very important class for displaying data in a table
 One-dimensional table.
 
+<<<<<<< HEAD
 It’s a subclass of UIScrollView.
+=======
+It's a subclass of UIScrollView.
+>>>>>>> pr/7
 
 Table can be static or dynamic (i.e. a list of items).
 
@@ -141,7 +169,11 @@ Very efficient even with very large sets of data.
 
 ###Displaying multi-dimensional tables ...
 
+<<<<<<< HEAD
 Usually done via a UINavigationController with multiple MVC’s where View is UITableView
+=======
+Usually done via a UINavigationController with multiple MVC's where View is UITableView
+>>>>>>> pr/7
 
 ###Kinds of UITableViews
 
@@ -155,7 +187,11 @@ Different formats for each row in the table (including completely customized)
 
 The class UITableViewController provides a convenient packaging of a UITableView in an MVC.
 
+<<<<<<< HEAD
 It’s mostly useful when the UITableView is going to fill all of self.view (in fact self.view in a UITableViewController is the UITableView).
+=======
+It's mostly useful when the UITableView is going to fill all of self.view (in fact self.view in a UITableViewController is the UITableView).
+>>>>>>> pr/7
 
 You can add one to your storyboard simply by dragging it from here.
 
@@ -168,6 +204,7 @@ Controller’s view property: the UITableView
 
 ###How to connect all this stuff up in code?
 
+<<<<<<< HEAD
  - Connections to code are made using the UITableView‘s dataSource and delegate
 
       The delegate is used to control how the table is displayed (it’s look and feel)
@@ -175,12 +212,22 @@ Controller’s view property: the UITableView
       The dataSource provides the data that is displayed inside the cells
 
 - UITableViewController automatically sets itself as the UITableView’s delegate & dataSource
+=======
+ - Connections to code are made using the UITableView's dataSource and delegate
+
+      The delegate is used to control how the table is displayed (it's look and feel)
+
+      The dataSource provides the data that is displayed inside the cells
+
+- UITableViewController automatically sets itself as the UITableView's delegate & dataSource
+>>>>>>> pr/7
 
   Your UITableViewController subclass will also have a property pointing to the UITableView …
 ```swift
   var tableView: UITableView // self.view in UITableViewController
 ```
 ###When do we need to implement the dataSource?
+<<<<<<< HEAD
 
 - Whenever the data in the table is dynamic (i.e. not static cells)
 
@@ -193,16 +240,39 @@ Controller’s view property: the UITableView
      Give me a view to use to draw each cell at a given row in a given section.
 
   Let’s cover the last one first (since the first two are very straightforward) ...
+=======
+
+- Whenever the data in the table is dynamic (i.e. not static cells)
+
+- There are three important methods in this protocol …
+
+     How many sections in the table?
+
+     How many rows in each section?
+
+     Give me a view to use to draw each cell at a given row in a given section.
+
+  Let's cover the last one first (since the first two are very straightforward) ...
 
 
+>>>>>>> pr/7
 
 
 #Customizing Each Row
 ###Providing a UIView to draw each row …
 It has to be a UITableViewCell (which is a subclass of UIView) or subclass thereof
 
+Don't worry, if you have 10,000 rows, only the visible ones will have a UITableViewCell
+
+<<<<<<< HEAD
+#Customizing Each Row
+###Providing a UIView to draw each row …
+It has to be a UITableViewCell (which is a subclass of UIView) or subclass thereof
+
 Don’t worry, if you have 10,000 rows, only the visible ones will have a UITableViewCell
 
+=======
+>>>>>>> pr/7
 But this means that UITableViewCells are reused as rows appear and disappear
 
 This has ramifications for multithreaded situations, so be careful in that scenario
@@ -244,17 +314,26 @@ You edit the data directly in the storyboard
 ###Summary
 Loading your table view with data is simple …
 
+<<<<<<< HEAD
 1. set the table view’s dataSource to your Controller (automatic with UITableViewController)
+=======
+1. set the table view's dataSource to your Controller (automatic with UITableViewController)
+>>>>>>> pr/7
 
 2.implement numberOfSectionsInTableView and numberOfRowsInSection
 
 3. implement cellForRowAtIndexPath to return loaded-up UITableViewCells
 
+<<<<<<< HEAD
 ###Section titles are also considered part of the table’s “data”
+=======
+###Section titles are also considered part of the table's "data"
+>>>>>>> pr/7
 So you return this information via UITableViewDataSource methods …
 ```swift
 func tableView(UITableView, titleFor{Header,Footer}InSection: Int) -> String
 ```
+<<<<<<< HEAD
 If a String is not sufficient, the UITableView’s delegate can provide a UIView
 ###There are a number of other methods in this protocol
 
@@ -264,6 +343,17 @@ They are mostly about dealing with editing the table by deleting/moving/insertin
 
 That’s because when rows are deleted, inserted or moved, it would likely modify the Model
 (and we’re talking about the UITableViewDataSource protocol here) 
+=======
+If a String is not sufficient, the UITableView's delegate can provide a UIView
+###There are a number of other methods in this protocol
+
+But we're not going to cover them in lecture
+
+They are mostly about dealing with editing the table by deleting/moving/inserting rows
+
+That's because when rows are deleted, inserted or moved, it would likely modify the Model
+(and we're talking about the UITableViewDataSource protocol here) 
+>>>>>>> pr/7
 
 
 #Table View Segues
@@ -273,8 +363,13 @@ The sender argument to prepareForSegue is the UITableViewCell of that row …
 func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
      if let identifier = segue.identifier {
           switch identifier {
+<<<<<<< HEAD
           case “XyzSegue”: // handle XyzSegue here
           case “AbcSegue”:
+=======
+          case "XyzSegue": // handle XyzSegue here
+          case "AbcSegue":
+>>>>>>> pr/7
               let cell = sender as MyTableViewCell
               if let indexPath = tableView.indexPathForCell(cell) {
                    let seguedToMVC = segue.destinationViewController as MyVC
@@ -286,6 +381,7 @@ func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
  }
 ```
 - You can see now why sender is AnyObject!
+<<<<<<< HEAD
 
   Sometimes it’s a UIButton, sometimes it’s a UITableViewCell
   
@@ -301,20 +397,45 @@ func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
 
 - and then get data from our internal data structure using the NSIndexPath’s section and row!
 
+=======
+
+  Sometimes it's a UIButton, sometimes it's a UITableViewCell
+  
+- So you will need to cast sender with as or as? to turn it into a UITableViewCell
+
+  If you have a custom UITableViewCell subclass, you can cast it to that if it matters
+  
+- Usually we will need the NSIndexPath of the UITableViewCell!
+  
+  Because we use that to index into our internal data structures
+
+- Now we just get our destination MVC as the proper class as usual …
+
+- and then get data from our internal data structure using the NSIndexPath's section and row!
+
+>>>>>>> pr/7
   and use that information to prepare the segued-to API using its public API
 
 
 #UITableViewDelegate
+<<<<<<< HEAD
 ###So far we’ve only talked about the UITableView’s dataSource
 But UITableView has another protocol-driven delegate called its delegate
 ###The delegate controls how the UITableView is displayed
 Not the data it displays (that’s the dataSource’s job), how it is displayed
+=======
+###So far we’ve only talked about the UITableView's dataSource
+But UITableView has another protocol-driven delegate called its delegate
+###The delegate controls how the UITableView is displayed
+Not the data it displays (that's the dataSource’s job), how it is displayed
+>>>>>>> pr/7
 ###Common for dataSource and delegate to be the same object
 Usually the Controller of the MVC containing the UITableView
 
 Again, this is set up automatically for you if you use UITableViewController
 ###The delegate also lets you observe what the table view is doing
 Especially responding to when the user selects a row
+<<<<<<< HEAD
 
 Usually you will just segue when this happens, but if you want to track it directly …
 
@@ -322,6 +443,15 @@ Usually you will just segue when this happens, but if you want to track it direc
 ###UITableViewDelegate method sent when row is selected
 This is sort of like “table view target/action” (only needed if you’re not segueing, of course)
 
+=======
+
+Usually you will just segue when this happens, but if you want to track it directly …
+
+#UITableView "Target/Action"
+###UITableViewDelegate method sent when row is selected
+This is sort of like "table view target/action" (only needed if you're not segueing, of course)
+
+>>>>>>> pr/7
 Example: if the master in a split view wants to update the detail without segueing to a new one
 ```swift
  func tableView(sender: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -359,7 +489,11 @@ func reloadData()
 Causes the UITableView to call numberOfSectionsInTableView and numberOfRowsInSection
 all over again and then cellForRowAtIndexPath on each visible row
 
+<<<<<<< HEAD
 Relatively heavyweight, but if your entire data structure changes, that’s what you need
+=======
+Relatively heavyweight, but if your entire data structure changes, that's what you need
+>>>>>>> pr/7
 
 If only part of your Model changes, there are lighter-weight reloaders, for example ...
 ```swift
@@ -369,13 +503,17 @@ func reloadRowsAtIndexPaths(indexPaths: [NSIndexPath],
 
 ###Controlling the height of rows
 
-Row height can be fixed (UITableView’s var rowHeight: CGFloat)
+Row height can be fixed (UITableView's var rowHeight: CGFloat)
 
 Or it can be determined using autolayout (rowHeight = UITableViewAutomaticDimension)
 
 If you do automatic, help the table view out by setting estimatedRowHeight to something
 
+<<<<<<< HEAD
 The UITableView’s delegate can also control row heights …
+=======
+The UITableView's delegate can also control row heights …
+>>>>>>> pr/7
 ```swift
 func tableView(UITableView, {estimated}heightForRowAtIndexPath: NSIndexPath) -> CGFloat
 ```

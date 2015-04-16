@@ -2,12 +2,21 @@
 #Today
 ### Interface Builder
   Demo: Viewing and Editing your custom UIViews in your storyboard (FaceView)
+<<<<<<< HEAD
 ### The Happiness MVC’s Model
   It’s happiness, of course! (which is different from smiliness)
 ### Protocols and Delegation
   How can generic UIViews not “own their data” and still draw that data?
   
   Demo: Showing the Happiness MVC’s Model using generic FaceView in its View
+=======
+### The Happiness MVC's Model
+  It's happiness, of course! (which is different from smiliness)
+### Protocols and Delegation
+  How can generic UIViews not "own their data" and still draw that data?
+  
+  Demo: Showing the Happiness MVC's Model using generic FaceView in its View
+>>>>>>> pr/7
   
 ### Gestures
   Demo: Happiness pinch and pan
@@ -20,21 +29,35 @@ Popovers
 
 #Extensions
 ### Miscellaneous topic!
+<<<<<<< HEAD
   You can add methods and properties to a class (even if you don’t have the source).
 ### There are some restrictions
   You can’t re-implement methods or properties that are already there (only add new ones).
+=======
+  You can add methods and properties to a class (even if you don't have the source).
+### There are some restrictions
+  You can't re-implement methods or properties that are already there (only add new ones).
+>>>>>>> pr/7
   
   The properties you add can have no storage associated with them.
 ### This feature is easily abused
   It should be used to add clarity to readability not obfuscation!
   
+<<<<<<< HEAD
   Don’t use it as a substitute for good object-oriented design technique.
+=======
+  Don't use it as a substitute for good object-oriented design technique.
+>>>>>>> pr/7
   
   Best used (at least for beginners) for very small, well-contained helper functions.
   
   Can actually be used well to organize code but requires architectural commitment.
   
+<<<<<<< HEAD
   When in doubt (for now), don’t do it. 
+=======
+  When in doubt (for now), don't do it. 
+>>>>>>> pr/7
 
 
 #Protocols
@@ -66,7 +89,11 @@ Popovers
   protocol SomeProtocol : InheritedProtocol1, InheritedProtocol2 { 
        var someProperty: Int { get set } 
        func aMethod(arg1: Double, anotherArgument: String) -> SomeType 
+<<<<<<< HEAD
        mutating func changeIt() ! 
+=======
+       mutating func changeIt() 
+>>>>>>> pr/7
        init(arg: Type) 
   }
 ```
@@ -81,18 +108,26 @@ Popovers
   
   You can even specify that implementers must implement a given initializer
 
+<<<<<<< HEAD
 ### How an implementer says “I implement that protocol”
 ```swift
   class SomeClass : SuperclassOfSomeClass, SomeProtocol, AnotherProtocol { !
      // implementation of SomeClass here!
+=======
+### How an implementer says "I implement that protocol"
+
+```swift
+  class SomeClass : SuperclassOfSomeClass, SomeProtocol, AnotherProtocol { 
+     // implementation of SomeClass here
+>>>>>>> pr/7
      // which must include all the properties and methods in SomeProtocol & AnotherProtocol
   }
 ```
   Claims of conformance to protocols are listed after the superclass for a class
 
 ```swift
-  enum SomeEnum : SomeProtocol, AnotherProtocol { !
-      // implementation of SomeEnum here!
+  enum SomeEnum : SomeProtocol, AnotherProtocol { 
+      // implementation of SomeEnum here
       // which must include all the properties and methods in SomeProtocol & AnotherProtocol
   }
 ```
@@ -100,25 +135,40 @@ Popovers
   Obviously, enums and structs would not have the superclass part
 
 ```swift
-  struct SomeStruct : SomeProtocol, AnotherProtocol { !
-       // implementation of SomeStruct here!
+  struct SomeStruct : SomeProtocol, AnotherProtocol { 
+       // implementation of SomeStruct here
        // which must include all the properties and methods in SomeProtocol & AnotherProtocol
   }
 ```
 
   Any number of protocols can be implemented by a given class, struct or enum
+<<<<<<< HEAD
  ```swift 
   class SomeClass : SuperclassOfSomeClass, SomeProtocol, AnotherProtocol { !
         // implementation of SomeClass here, including …!
+=======
+  
+ ```swift 
+  class SomeClass : SuperclassOfSomeClass, SomeProtocol, AnotherProtocol { 
+        // implementation of SomeClass here, including …
+>>>>>>> pr/7
         required init(…)     //    In a class, inits must be marked required (or otherwise a subclass might not conform)
   }
   ```
   
   You are allowed to add protocol conformance via an extension
+<<<<<<< HEAD
   ```swift
   extension Something : SomeProtocol { !
         // implementation of SomeProtocol here!
         // no stored properties though!
+=======
+  
+  ```swift
+  extension Something : SomeProtocol { 
+        // implementation of SomeProtocol here
+        // no stored properties though
+>>>>>>> pr/7
   }
   ```
 
@@ -143,7 +193,11 @@ Popovers
 
 #Delegation
 ### A very important use of protocols
+<<<<<<< HEAD
   It’s how we can implement “blind communication” between a View and its Controller
+=======
+  It's how we can implement "blind communication" between a View and its Controller
+>>>>>>> pr/7
 ###How it plays out …
   
   1. Create a delegation protocol (defines what the View wants the Controller to take care of)
@@ -165,17 +219,27 @@ Popovers
 
 
 #Demo
+<<<<<<< HEAD
 ### Let’s see FaceView delegate its “data”
   That way FaceView can stay generic
   
   It won’t be tied to HappinessViewController, so it can be used by other Controllers
   
   Since it’s doing this to get its data (its smiliness), we’ll call our delegate property dataSource
+=======
+### Let's see FaceView delegate its "data"
+  That way FaceView can stay generic
+  
+  It won't be tied to HappinessViewController, so it can be used by other Controllers
+  
+  Since it's doing this to get its data (its smiliness), we'll call our delegate property dataSource
+>>>>>>> pr/7
 
 
 
 
 #Gestures
+<<<<<<< HEAD
 ### We’ve seen how to draw in a UIView, how do we get touches?
   We can get notified of the raw touch events (touch down, moved, up, etc.)
   Or we can react to certain, predefined “gestures.” The latter is the way to go!
@@ -186,20 +250,38 @@ Popovers
   1. Adding a gesture recognizer to a UIView (asking the UIView to “recognize” that gesture)
 
   2. Providing a method to “handle” that gesture (not necessarily handled by the UIVie
+=======
+### We've seen how to draw in a UIView, how do we get touches?
+  We can get notified of the raw touch events (touch down, moved, up, etc.)
+  Or we can react to certain, predefined "gestures". The latter is the way to go!
+### Gestures are recognized by instances of UIGestureRecognizer
+  The base class is "abstract". We only actually use concrete subclasses to recognize.
+### There are two sides to using a gesture recognizer
+
+  1. Adding a gesture recognizer to a UIView (asking the UIView to "recognize" that gesture)
+
+  2. Providing a method to "handle" that gesture (not necessarily handled by the UIVie
+>>>>>>> pr/7
 
 ###Usually the first is done by a Controller
 
   Though occasionally a UIView will do this itself if the gesture is integral to its existence
   
 ### The second is provided either by the UIView or a Controller
+<<<<<<< HEAD
   Depending on the situation. We’ll see an example of both in our demo.
 ### Adding a gesture recognizer to a UIView
   Imagine we wanted a UIView in our Controller’s View to recognize a “pan” gesture …
+=======
+  Depending on the situation. We'll see an example of both in our demo.
+### Adding a gesture recognizer to a UIView
+  Imagine we wanted a UIView in our Controller’s View to recognize a "pan" gesture …
+>>>>>>> pr/7
   
 ```swift
   @IBOutlet weak var pannableView: UIView {
      didSet {
-         let recognizer = UIPanGestureRecognizer(target: self, action: “pan:”)
+         let recognizer = UIPanGestureRecognizer(target: self, action: "pan":)
          pannableView.addGestureRecognizer(recognizer)
      }
   }
@@ -210,6 +292,7 @@ Popovers
 -  We use its property observer to get involved when the outlet gets hooked up by iOS
   
 -  Here we are creating an instance of a concrete subclass of UIGestureRecognizer (for pans)
+<<<<<<< HEAD
   
 -  The target gets notified when the gesture is recognized (in this case, the Controller itself)
   
@@ -222,6 +305,23 @@ Popovers
 ### A handler for a gesture needs gesture-specific information
   So each concrete subclass provides special methods for handling that type of gesture
 ### For example, UIPanGestureRecognizer provides 3 methods
+=======
+  
+-  The target gets notified when the gesture is recognized (in this case, the Controller itself)
+  
+-  The action is the method invoked on recognition (the : means it has an argument)
+  
+-  Here we ask the UIView to actually start trying to recognize this gesture in its bounds
+  
+-  Let's talk about how we implement the handler …
+  
+
+### A handler for a gesture needs gesture-specific information
+  So each concrete subclass provides special methods for handling that type of gesture
+  
+### For example, UIPanGestureRecognizer provides 3 methods
+
+>>>>>>> pr/7
 ```swift
   func translationInView(view: UIView) -> CGPoint // cumulative since start of recognition
   func velocityInView(view: UIView) -> CGPoint // how fast the finger is moving (points/s)
@@ -229,9 +329,16 @@ Popovers
 ```
   This last one is interesting because it allows you to reset the translation so far
   
+<<<<<<< HEAD
   By resetting the translation to zero all the time, you end up getting “incremental” translation
   
 ### The abstract superclass also provides state information
+=======
+  By resetting the translation to zero all the time, you end up getting "incremental" translation
+  
+### The abstract superclass also provides state information
+
+>>>>>>> pr/7
 ```swift
   var state: UIGestureRecognizerState { get }
 ```
@@ -259,6 +366,7 @@ Popovers
    }
 ```
 
+<<<<<<< HEAD
  - Remember that the action was “pan:” (if no colon, we would not get the gesture argument) 
   
  -  We are only going to do anything when the finger moves or lifts up off the device’s surface
@@ -266,6 +374,15 @@ Popovers
  -  fallthrough means “execute the code for the next case down”
   
  - Here we get the location of the pan in the pannableView’s coordinate system
+=======
+ - Remember that the action was "pan": (if no colon, we would not get the gesture argument) 
+  
+ -  We are only going to do anything when the finger moves or lifts up off the device's surface
+  
+ -  fallthrough means "execute the code for the next case down"
+  
+ - Here we get the location of the pan in the pannableView's coordinate system
+>>>>>>> pr/7
   
  -  Now we do whatever we want with that information
   
@@ -273,11 +390,21 @@ Popovers
   
 
 ###  UIPinchGestureRecognizer
+<<<<<<< HEAD
+=======
+
+>>>>>>> pr/7
 ```swift
    var scale: CGFloat // not read-only (can reset)
    var velocity: CGFloat { get } // scale factor per second
 ```
+<<<<<<< HEAD
 ###  UIRotationGestureRecognizer
+=======
+
+###  UIRotationGestureRecognizer
+
+>>>>>>> pr/7
 ```swift
    var rotation: CGFloat // not read-only (can reset); in radians
    var velocity: CGFloat { get } // radians per second
@@ -285,6 +412,10 @@ Popovers
 ###  UISwipeGestureRecognizer
 
    Set up the direction and number of fingers you want, then look for .Recognized
+<<<<<<< HEAD
+=======
+   
+>>>>>>> pr/7
 ```swift
    var direction: UISwipeGestureRecoginzerDirection // which swipes you want
    var numberOfTouchesRequired: Int // finger count
@@ -292,6 +423,10 @@ Popovers
 ###  UITapGestureRecognizer
 
    Set up the number of taps and fingers you want, then look for .Ended
+<<<<<<< HEAD
+=======
+   
+>>>>>>> pr/7
 ```swift
    var numberOfTapsRequired: Int // single tap, double tap, etc.
    var numberOfTouchesRequired: Int // finger count

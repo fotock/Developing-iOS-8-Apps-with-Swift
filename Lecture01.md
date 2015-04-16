@@ -1,7 +1,11 @@
 
 #Today
 
+<<<<<<< HEAD
 ##What is this class all about?
+=======
+###What is this class all about?
+>>>>>>> pr/7
   
   Why am I here?
 
@@ -9,14 +13,19 @@
   You must be a strong object-oriented programmer.
 
 ###iOS Overview
-What’s in iOS?
+What's in iOS?
   
 ###Show me!
  
 A demo with a thousand words is worth tens of thousands of words. 
 
 
+<<<<<<< HEAD
 #What will I learn in this course?
+=======
+# What will I learn in this course?
+
+>>>>>>> pr/7
 ###How to build cool apps
   Easy to build even very complex applications.
   
@@ -63,11 +72,13 @@ A demo with a thousand words is worth tens of thousands of words.
   If you are not very comfortable with all of these, this is probably not the class for you!
   
 ###Programming Experience
+
   This is an upper-level CS course.
   
   If you have never written a program where you had to design and implement more than a handful of classes, this will be a          big step up in difficulty for you. 
 
 
+<<<<<<< HEAD
 #What’s in iOS?
 
 ###Cocoa Touch
@@ -83,33 +94,126 @@ A demo with a thousand words is worth tens of thousands of words.
   Audio Mixing    Quartz (2D)
   Audio Recording Core Animation
   Video Playback  OpenGL ES
+=======
+#What's in iOS?
+
+###Cocoa Touch
+
+  Multi-Touch    
+  
+  Alerts
+  
+  Core Motion   
+  
+  Web View
+  
+  View Hierarchy  
+  
+  Map Kit
+  
+  Localization   
+  
+  Image Picker
+  
+  Controls       
+  
+  Camera
+
+###Media
+
+  Core Audio      
+  
+  JPEG, PNG, TIFF
+  
+  OpenAL          
+  
+  PDF
+  
+  Audio Mixing   
+  
+  Quartz (2D)
+  
+  Audio Recording
+  
+  Core Animation
+  
+  Video Playback 
+  
+  OpenGL ES
+>>>>>>> pr/7
 
 ###Core Services
-  Collections     Core Location
-  Address Book    Net Services 
-  Networking      Threading
-  File Access     Preferences
-  SQLite          URL Utilities
 
-###Core OS
-  OSX Kernel      Power Management
+  Collections    
   
-  Mach 3.0        Keychain Access
+  Core Location
   
-  BSD             Certificates
+  Address Book   
   
-  Sockets         File System
+  Net Services 
   
-  Security        Bonjour
+  Networking    
+  
+  Threading
+  
+  File Access    
+  
+  Preferences
+  
+  SQLite       
+  
+  URL Utilities
 
+<<<<<<< HEAD
 #Platform Components
 ###Tools
  Xcode 6           Instr uments
+=======
+###Core OS
+  OSX Kernel    
+  
+  Power Management
+  
+  Mach 3.0      
+  
+  Keychain Access
+  
+  BSD          
+  
+  Certificates
+  
+  Sockets       
+  
+  File System
+  
+  Security     
+  
+  Bonjour
+
+#Platform Components
+###Tools
+ Xcode 6       
+ 
+ Instr uments
+>>>>>>> pr/7
  
 ###Language(s)
   let value = formatter.numberFromString(display.text!)?.doubleValue
 ###Frameworks
+<<<<<<< HEAD
    Foundation    Core Data    UIKit    Map Kit    Core Motion
+=======
+   Foundation   
+   
+   Core Data   
+   
+   UIKit   
+   
+   Map Kit   
+   
+   Core Motion
+   
+>>>>>>> pr/7
 ###Design Strategy
    MVC
    
@@ -117,11 +221,11 @@ A demo with a thousand words is worth tens of thousands of words.
 ###Calculator
 All this stuff can be very abstract until you see it in action.
 
-We’ll start getting comfortable with Swift and Xcode 6 by building something right away.
+We'll start getting comfortable with Swift and Xcode 6 by building something right away.
 
 Two part demo starting today, finishing on Wednesday.
 
-###Today’s topics in the demo …
+###Today's topics in the demo …
 
 - Creating a Project in Xcode 6
 - Building a UI (and making it squishable/stretchable using Autolayout)
