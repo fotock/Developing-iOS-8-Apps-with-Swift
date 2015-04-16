@@ -15,23 +15,14 @@
   - Demos
 
 #View Controller Lifecycle
-<<<<<<< HEAD
-### View Controllers have a “Lifecycle”
-  A sequence of messages is sent to a View Controller as it progresses through its “lifetime”.
-=======
 ### View Controllers have a "Lifecycle"
   A sequence of messages is sent to a View Controller as it progresses through its "lifetime".
->>>>>>> pr/7
 ### Why does this matter?
   You very commonly override these methods to do certain work.
 ### The start of the lifecycle …
   Creation.
   
-<<<<<<< HEAD
-  MVCs are most often instantiated out of a storyboard (as you’ve seen).
-=======
   MVCs are most often instantiated out of a storyboard (as you've seen).
->>>>>>> pr/7
   
   There are ways to do it in code (rare) as well which we may cover later in the quarter.
   
@@ -47,19 +38,12 @@
   
  - Low-memory situations.
   
-<<<<<<< HEAD
-=======
 
->>>>>>> pr/7
 ### After instantiation and outlet-setting, viewDidLoad is called
 
  - This is an exceptionally good place to put a lot of setup code.
  
-<<<<<<< HEAD
-   It’s better than an init because your outlets are all set up by the time this is called.
-=======
    It's better than an init because your outlets are all set up by the time this is called.
->>>>>>> pr/7
 ```swift
   override func viewDidLoad() {
       super.viewDidLoad()  // always let super have a chance in lifecycle methods
@@ -70,34 +54,20 @@
  - One thing you may well want to do here is update your UI from your Model.
  
    Because now you know all of your outlets are set.
-<<<<<<< HEAD
-
- - But be careful because the geometry of your view (its bounds) is not set yet!
- 
-   At this point, you can’t be sure you’re on an iPhone 5-sized screen or an iPad or ???.
-
-=======
 
  - But be careful because the geometry of your view (its bounds) is not set yet!
  
    At this point, you can't be sure you're on an iPhone 5-sized screen or an iPad or ???.
 
->>>>>>> pr/7
    So do not initialize things that are geometry-dependent here.
 
 ### Just before your view appears on screen, you get notified
 ```swift
   func viewWillAppear(animated: Bool) // animated is whether you are appearing over time
 ```
-<<<<<<< HEAD
- -  Your view will only get “loaded” once, but it might appear and disappear a lot.
-   
-    So don’t put something in this method that really wants to be in viewDidLoad.
-=======
  -  Your view will only get "loaded" once, but it might appear and disappear a lot.
    
     So don't put something in this method that really wants to be in viewDidLoad.
->>>>>>> pr/7
 
     Otherwise, you might be doing something over and over unnecessarily.
 
@@ -106,26 +76,16 @@
  - You could use this to optimize performance by waiting until this method is called
     (as opposed to viewDidLoad) to kick off an expensive operation (probably in another thread).
 
-<<<<<<< HEAD
- - Your view’s geometry is set here, but there are other places to react to geometry.
- 
-###There is a “did” version of this as well
-=======
  - Your view's geometry is set here, but there are other places to react to geometry.
  
 
 ###There is a "did" version of this as well
 
->>>>>>> pr/7
 ```swift
   func viewDidAppear(animated: Bool)
 ```
 ### And you get notified when you will disappear off screen too
-<<<<<<< HEAD
-  This is where you put “remember what’s going on” and cleanup code.
-=======
   This is where you put "remember what's going on" and cleanup code.
->>>>>>> pr/7
 ```swift
   override func viewWillDisappear(animated: Bool) {
      super.viewWillDisappear(animated) // call super in all the viewWill/Did... methods
@@ -134,11 +94,7 @@
      // maybe even kick off a thread to do stuff here (again, we'll cover threads later)
   }
 ```
-<<<<<<< HEAD
-### There is a “did” version of this too
-=======
 ### There is a "did" version of this too
->>>>>>> pr/7
 ```swift
   func viewDidDisappear(animated: Bool)
 ```
@@ -150,27 +106,16 @@
    funcviewWillLayoutSubviews()
    funcviewDidLayoutSubviews()
 ```
-<<<<<<< HEAD
-  They are called any time a view’s frame changed and its subviews were thus re-layed out.
-=======
   They are called any time a view's frame changed and its subviews were thus re-layed out.
->>>>>>> pr/7
   
   For example, autorotation (more on this in a moment). 
   
   You can reset the frames of your subviews here or set other geometry-related properties.
   
-<<<<<<< HEAD
-  These methods might be called more often than you’d imagine
-  (e.g. for pre- and post- animation arrangement, etc.).
-  
-  So don’t do anything in here that can’t properly (and efficiently) be done repeatedly.
-=======
   These methods might be called more often than you'd imagine
   (e.g. for pre- and post- animation arrangement, etc.).
   
   So don't do anything in here that can't properly (and efficiently) be done repeatedly.
->>>>>>> pr/7
   
 #Autorotation
   - Usually, the UI changes shape when the user rotates the device between portrait/landscape
@@ -198,22 +143,14 @@
   
   Examples: images and sounds.
   
-<<<<<<< HEAD
-  Anything “big” that is not currently in use and can be recreated relatively easily
-=======
   Anything "big" that is not currently in use and can be recreated relatively easily
->>>>>>> pr/7
     should probably be released (by setting any pointers to it to nil)
     
 ### awakeFromNib
 
   This method is sent to all objects that come out of a storyboard (including your Controller).
   
-<<<<<<< HEAD
-  Happens before outlets are set! (i.e. before the MVC is “loaded”)
-=======
   Happens before outlets are set! (i.e. before the MVC is "loaded")
->>>>>>> pr/7
   
   Put code somewhere else if at all possible (e.g. viewDidLoad or viewWillAppear).
 
@@ -230,21 +167,13 @@
   
  - viewDidLoad
   
-<<<<<<< HEAD
- - These pairs will be called each time your Controller’s view goes on/off screen …
-=======
  - These pairs will be called each time your Controller's view goes on/off screen …
->>>>>>> pr/7
   
      viewWillAppear and viewDidAppear
      
      viewWillDisappear and viewDidDisappear
      
-<<<<<<< HEAD
- - These “geometry changed” methods might be called at any time after viewDidLoad …
-=======
  - These "geometry changed" methods might be called at any time after viewDidLoad …
->>>>>>> pr/7
   
      viewWillLayoutSubviews (… then autolayout happens, then …) viewDidLayoutSubviews
      
@@ -253,42 +182,24 @@
      didReceiveMemoryWarning
 
 
-<<<<<<< HEAD
- ###Demo
-  Let’s plop some println statements into the View Controller Lifecycle methods in Psychologist
-=======
 
 ### Demo
  
   Let's plop some println statements into the View Controller Lifecycle methods in Psychologist
->>>>>>> pr/7
   
   Then we can watch as Psychologist and Happiness MVCs go through their lifecycle
 
 
 
 #Autolayout
-<<<<<<< HEAD
-### You’ve seen a lot of Autolayout already
- - Using the dashed blue lines to try to tell Xcode what you intend
- - Ctrl-Dragging between views to create relationships (spacing, etc.)
- - The “Pin” and “Arrange” popovers in the lower right of the storyboard
-=======
 ### You've seen a lot of Autolayout already
  - Using the dashed blue lines to try to tell Xcode what you intend
  - Ctrl-Dragging between views to create relationships (spacing, etc.)
  - The "Pin" and "Arrange" popovers in the lower right of the storyboard
->>>>>>> pr/7
  - Reset to Suggested Constraints (if the blue lines were enough to unambiguously set constraints)
  - Document Outline (see all constraints, resolve misplacements and even conflicts)
  - Size Inspector (look at (and edit!) the details of the constraints on the selected view)
  - Clicking on a constraint to select it then bring up Attributes Inspector (to edit its details)
-<<<<<<< HEAD
-### Mastering Autolayout requires experience
-  You just have to do it to learn it
-### Autolayout can be done from code too
-  Though you’re probably better off doing it in the storyboard wherever possible
-=======
  
 
 ### Mastering Autolayout requires experience
@@ -296,7 +207,6 @@
   
 ### Autolayout can be done from code too
   Though you're probably better off doing it in the storyboard wherever possible
->>>>>>> pr/7
 
   The demo today will show a simple case of doing Autolayout from code
 ### What about rotation?
@@ -313,17 +223,10 @@
 ### View Controllers might want this in other situations too
   For example, your MVC is the master of a side-by-side split view
   
-<<<<<<< HEAD
-  In that case, you’d want to draw just like a Portrait iPhone does
-  
-### The solution? Size Classes 
-  Your View Controller always exists in a certain “size class” environment for width and height
-=======
   In that case, you'd want to draw just like a Portrait iPhone does
   
 ### The solution? Size Classes 
   Your View Controller always exists in a certain "size class" environment for width and height
->>>>>>> pr/7
   
   Currently this is either Compact or Regular (i.e. not compact)
 ### iPhone 6+
@@ -342,11 +245,7 @@
   An MVC that is the master in a side-by-side split view will be Compact width, Regular height
   
 ### Extensible
-<<<<<<< HEAD
-  This whole concept is extensible to any “MVC’s inside other MVC’s” situation (not just split view)
-=======
   This whole concept is extensible to any "MVC's inside other MVC's" situation (not just split view)
->>>>>>> pr/7
   
   An MVC can find out its size class environment via this method in UIViewController …
 ```swift  
@@ -361,11 +260,7 @@
   
 ### Autolayout
 
-<<<<<<< HEAD
-  Let’s pull it all together by building a UI that has some Autolayout challenges
-=======
   Let's pull it all together by building a UI that has some Autolayout challenges
->>>>>>> pr/7
   
   Including needing to do something different in different size classes
 
@@ -375,8 +270,4 @@
   
   For example, change the number of rows and columns in different size class situations
   
-<<<<<<< HEAD
-  Or even show more operations in one size class or another (like Apple’s Calculator app does)
-=======
   Or even show more operations in one size class or another (like Apple's Calculator app does)
->>>>>>> pr/7
