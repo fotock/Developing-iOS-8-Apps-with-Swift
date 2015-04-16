@@ -1,7 +1,7 @@
 
 #Today
 
-##What is this class all about?
+###What is this class all about?
   
   Why am I here?
 
@@ -16,7 +16,8 @@ What's in iOS?
 A demo with a thousand words is worth tens of thousands of words. 
 
 
-#What will I learn in this course?
+# What will I learn in this course?
+
 ###How to build cool apps
   Easy to build even very complex applications.
   
@@ -73,59 +74,110 @@ A demo with a thousand words is worth tens of thousands of words.
 
 ###Cocoa Touch
 
-  Multi-Touch     Alerts
+  Multi-Touch    
   
-  Core Motion     Web View
+  Alerts
   
-  View Hierarchy  Map Kit
+  Core Motion   
   
-  Localization    Image Picker
+  Web View
   
-  Controls        Camera
+  View Hierarchy  
+  
+  Map Kit
+  
+  Localization   
+  
+  Image Picker
+  
+  Controls       
+  
+  Camera
 
 ###Media
 
-  Core Audio      JPEG, PNG, TIFF
+  Core Audio      
   
-  OpenAL          PDF
+  JPEG, PNG, TIFF
   
-  Audio Mixing    Quartz (2D)
+  OpenAL          
   
-  Audio Recording Core Animation
+  PDF
   
-  Video Playback  OpenGL ES
+  Audio Mixing   
+  
+  Quartz (2D)
+  
+  Audio Recording
+  
+  Core Animation
+  
+  Video Playback 
+  
+  OpenGL ES
 
 ###Core Services
 
-  Collections     Core Location
+  Collections    
   
-  Address Book    Net Services 
+  Core Location
   
-  Networking      Threading
+  Address Book   
   
-  File Access     Preferences
+  Net Services 
   
-  SQLite          URL Utilities
+  Networking    
+  
+  Threading
+  
+  File Access    
+  
+  Preferences
+  
+  SQLite       
+  
+  URL Utilities
 
 ###Core OS
-  OSX Kernel      Power Management
+  OSX Kernel    
   
-  Mach 3.0        Keychain Access
+  Power Management
   
-  BSD             Certificates
+  Mach 3.0      
   
-  Sockets         File System
+  Keychain Access
   
-  Security        Bonjour
+  BSD          
+  
+  Certificates
+  
+  Sockets       
+  
+  File System
+  
+  Security     
+  
+  Bonjour
 
 #Platform Components
 ###Tools
- Xcode 6           Instr uments
+ Xcode 6       
+ 
+ Instr uments
  
 ###Language(s)
   let value = formatter.numberFromString(display.text!)?.doubleValue
 ###Frameworks
-   Foundation    Core Data    UIKit    Map Kit    Core Motion
+   Foundation   
+   
+   Core Data   
+   
+   UIKit   
+   
+   Map Kit   
+   
+   Core Motion
+   
 ###Design Strategy
    MVC
    
